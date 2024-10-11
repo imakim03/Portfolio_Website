@@ -1,0 +1,27 @@
+#scrollToTopButton {
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    background-color: var(--primary-accent-color);
+    border-radius: 50%;
+    z-index: 9;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+}
+
+#scrollToTopButton::after {
+    border-radius: 50%;
+    top: 5%;
+    left: 5%;
+    width: 85%;
+    height: 85%;
+    border: dashed 2px var(--font-color);
+}
+
+#scrollToTopButton > svg {
+    fill: var(--font-color);
+}

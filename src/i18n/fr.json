@@ -1,0 +1,88 @@
+{
+    "homeContainer": {
+      "cursor": {
+        "learnMore": "En savoir plus",
+        "view": "Voir",
+        "refresh": "Rafraîchir",
+        "download": "Télécharger",
+        "arrowIcon": "Icône de flèche"
+      }
+    },
+    "header": {
+      "navBar": {
+        "projects": "Projets",
+        "home": "Accueil",
+        "menu": "Menu"
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio 2024",
+      "iconAlt": "Icône de portfolio"
+    },
+    "flexContainer": {
+      "rowOne": {
+        "colOne": {
+          "introParagraph": "Salut, je suis Imane.",
+          "mainHeading": {
+            "enjoy": "J'aime",
+            "typedCursor": "|"
+          }
+        },
+        "colTwo": {
+          "projectsCard": {
+            "imageAlt": "Projets"
+          }
+        }
+      },
+      "rowTwo": {
+        "colOne": {
+          "educationCard": {
+            "heading": "Éducation",
+            "educationList": [
+              {
+                "title": "Lycée",
+                "date": "2019 - 2020",
+                "location": "Lycée Al Azzouzia"
+              },
+              {
+                "title": "Cycle Préparatoire",
+                "date": "2020 - 2022",
+                "location": "Ensa Marrakech"
+              },
+              {
+                "title": "Cycle d'Ingénieur",
+                "date": "2022 - 2023",
+                "location": "Ensa Marrakech"
+              }
+            ]
+          }
+        },
+        "colTwo": {
+          "lightDarkModeCard": {
+            "iconAlt": "Mode Clair/Sombre"
+          },
+          "languageToggleCard": {
+            "button": "Fr"
+          },
+          "buttonIcon": {
+            "altText": "Icône de bouton"
+          }
+        },
+        "colThree": {
+          "flowerCard": {
+            "flowerIconAlt": "Icône de fleur"
+          }
+        },
+        "colFour": {
+          "socialIcons": {
+            "emailIcon": "Icône d'email",
+            "email": "@",
+            "twitterIcon": "Icône Twitter",
+            "linkedinIcon": "Icône LinkedIn",
+            "githubIcon": "Icône GitHub"
+          }
+        }
+      }
+    }
+  }
+  

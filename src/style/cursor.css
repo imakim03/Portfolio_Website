@@ -1,0 +1,26 @@
+.cursor {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border: dashed 2px var(--font-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1001;
+    will-change: transform, opacity, height, width;
+  }
+  
+  .cursorIcon {
+    height: 100%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 99999;
+  }
+  
+  .showText {
+    display: flex;
+  }

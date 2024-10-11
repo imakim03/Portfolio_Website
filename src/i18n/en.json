@@ -1,0 +1,88 @@
+{
+    "homeContainer": {
+      "cursor": {
+        "learnMore": "Learn More",
+        "view": "View",
+        "refresh": "Refresh",
+        "download": "Download",
+        "arrowIcon": "Arrow Icon"
+      }
+    },
+    "header": {
+      "navBar": {
+        "projects": "Projects",
+        "home": "Home",
+        "menu": "Menu"
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio 2024",
+      "iconAlt": "Portfolio Icon"
+    },
+    "flexContainer": {
+      "rowOne": {
+        "colOne": {
+          "introParagraph": "Hi, I'm Imane.",
+          "mainHeading": {
+            "enjoy": "I enjoy",
+            "typedCursor": "|"
+          }
+        },
+        "colTwo": {
+          "projectsCard": {
+            "imageAlt": "Projects"
+          }
+        }
+      },
+      "rowTwo": {
+        "colOne": {
+          "educationCard": {
+            "heading": "Education",
+            "educationList": [
+              {
+                "title": "High School",
+                "date": "2019 - 2020",
+                "location": "Al Azzouzia High School"
+              },
+              {
+                "title": "Preparatory Cycle",
+                "date": "2020 - 2022",
+                "location": "Ensa Marrakech"
+              },
+              {
+                "title": "Engineering Cycle",
+                "date": "2022 - 2023",
+                "location": "Ensa Marrakech"
+              }
+            ]
+          }
+        },
+        "colTwo": {
+          "lightDarkModeCard": {
+            "iconAlt": "Light/Dark Mode"
+          },
+          "languageToggleCard": {
+            "button": "Fr"
+          },
+          "buttonIcon": {
+            "altText": "Button Icon"
+          }
+        },
+        "colThree": {
+          "flowerCard": {
+            "flowerIconAlt": "Flower Icon"
+          }
+        },
+        "colFour": {
+          "socialIcons": {
+            "emailIcon": "Email Icon",
+            "email": "@",
+            "twitterIcon": "Twitter Icon",
+            "linkedinIcon": "LinkedIn Icon",
+            "githubIcon": "GitHub Icon"
+          }
+        }
+      }
+    }
+  }
+  
