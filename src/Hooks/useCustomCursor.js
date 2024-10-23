@@ -1,65 +1,72 @@
 import { useState, useEffect } from 'react';
-import Lightbox from 'react-image-lightbox';
 
-export const useCustomCursor = (lightboxStates) => {
+export const useCustomCursor = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVarient, setCursorVarient] = useState('default');
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   let previousScrollY = window.scrollY;
 
   useEffect(() => {
-    const updateCursorPosition = (e) => setMousePosition({ x: e.pageX, y: e.pageY });
+    // Detect if the device is touch-enabled
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(isTouch);
 
-    const updateCursorOnScroll = () => {
-      const scrollDifference = window.scrollY - previousScrollY;
-      setMousePosition((prevPosition) => ({
-        x: prevPosition.x,
-        y: prevPosition.y + scrollDifference,
-      }));
-      previousScrollY = window.scrollY;
+    // Only attach mouse and scroll listeners if it's not a touch device
+    if (!isTouch) {
+      const updateCursorPosition = (e) => {
+        const isFullscreen = document.fullscreenElement !== null;
+        // Use clientX, clientY for fullscreen
+        const cursorX = isFullscreen ? e.screenX : e.pageX; 
+        const cursorY = isFullscreen ? e.screenY : e.pageY;
+    
+        setMousePosition({ x: cursorX, y: cursorY });
     };
 
-    window.addEventListener('mousemove', updateCursorPosition);
-    window.addEventListener('scroll', updateCursorOnScroll);
+      const updateCursorOnScroll = () => {
+        const scrollDifference = window.scrollY - previousScrollY;
+        setMousePosition((prevPosition) => ({
+          x: prevPosition.x,
+          y: prevPosition.y + scrollDifference,
+        }));
+        previousScrollY = window.scrollY;
+      };
 
-    return () => {
-      window.removeEventListener('mousemove', updateCursorPosition);
-      window.removeEventListener('scroll', updateCursorOnScroll);
-    };
+      window.addEventListener('mousemove', updateCursorPosition);
+      window.addEventListener('scroll', updateCursorOnScroll);
+
+      return () => {
+        window.removeEventListener('mousemove', updateCursorPosition);
+        window.removeEventListener('scroll', updateCursorOnScroll);
+      };
+    }
   }, []);
 
-  // When the mouse leaves the page
   useEffect(() => {
-    const handleMouseOut = (e) => {
-      if (!e.relatedTarget || e.relatedTarget.nodeName === "HTML") {
-        setIsVisible(false);
-      }
-    };
+    if (!isTouchDevice) {
+      // Hide cursor when the mouse leaves the page
+      const handleMouseOut = (e) => {
+        if (!e.relatedTarget || e.relatedTarget.nodeName === "HTML") {
+          setIsVisible(false);
+        }
+      };
 
-    const handleMouseMove = () => setIsVisible(true);
+      const handleMouseMove = () => setIsVisible(true);
 
-    window.addEventListener('mouseout', handleMouseOut);
-    window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseout', handleMouseOut);
+      window.addEventListener('mousemove', handleMouseMove);
 
-    return () => {
-      window.removeEventListener('mouseout', handleMouseOut);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  // If any of the lightBoxs is open then set the cursor into default
-  // useEffect(() => {
-  //   if (lightboxStates.some(state => state)) {
-  //       setIsVisible(false);
-  //   } else {
-  //       setIsVisible(true);
-  //   }
-  //   }, [lightboxStates]);
+      return () => {
+        window.removeEventListener('mouseout', handleMouseOut);
+        window.removeEventListener('mousemove', handleMouseMove);
+      };
+    }
+  }, [isTouchDevice]);
 
   const variants = {
     default: {
-        x: mousePosition.x - 25,
-        y: mousePosition.y - 25,
+        x: mousePosition.x - 36,
+        y: mousePosition.y - 36,
         border: 'dashed 2px var(--font-color)',
         transition: { duration: 0 }
     },
@@ -73,8 +80,8 @@ export const useCustomCursor = (lightboxStates) => {
         transition: { duration: 0 }
     },
     socialCard: {
-      x: mousePosition.x - 25,
-      y: mousePosition.y - 25,
+      x: mousePosition.x - 36,
+      y: mousePosition.y - 36,
       height: 50,
       width: 50,
       border: 'dashed 2px var(--font-color)',
@@ -91,8 +98,8 @@ export const useCustomCursor = (lightboxStates) => {
       transition: { duration: 0 }
     },
     cardHover: {
-      x: mousePosition.x - 25,
-      y: mousePosition.y - 25,
+      x: mousePosition.x - 36,
+      y: mousePosition.y - 36,
       border: 'dashed 2px var(--font-color)',
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
       transition: { duration: 0 }
@@ -118,7 +125,7 @@ export const useCustomCursor = (lightboxStates) => {
   const cursorLeaveDownloadCard = () => { setCursorVarient('default'); document.querySelector('.cursorDownload').classList.remove('showText'); }
 
   return { 
-    isVisible,
+    isVisible: !isTouchDevice && isVisible,
     cursorVarient, 
     variants,
     cursorEnterCard,

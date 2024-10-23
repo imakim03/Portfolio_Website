@@ -1,0 +1,673 @@
+.portfolio {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    color: var(--grey-color);
+    height: 450px;
+    pointer-events: none;
+  }
+  
+  .portfolio > svg {
+    rotate: 36deg;
+  }
+
+  /* -- Main Content -- */
+  
+  .flexContainer {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    padding: 5em 14em 8em 14em;
+  }
+  
+  .card, .socialCard {
+    position: relative;
+    border-radius: var(--base-space);
+    box-shadow: 2px 2px 2px 2px #0000001f;
+  }
+  
+  .card::after, .socialCard::after {
+    content: '';
+    position: absolute;
+    width: 96%;
+    height: 90%;
+    top: 5%;
+    left: 2%;
+    border: dashed 2px var(--font-color);
+    border-radius: var(--base-space);
+  }
+  
+  .card:focus, .card2:focus, .socialCard:focus {             
+    outline: solid 1.5px #FFDFD6;
+    border: solid 1.5px #24292e;
+    border-radius: var(--base-space);
+  }
+  
+  .card2 {
+    background-image: var(--gradient);
+    background-size: 800%;
+    background-position: 0%,0%;
+    border-radius: var(--base-space);
+    box-shadow: 2px 2px 2px 2px #0000001f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: backgroundAnimation 15s infinite ease;
+  }
+  
+  @keyframes backgroundAnimation {
+    0% {
+      background-position: 0%,0%;
+    }
+    100% {
+      background-position: 100%,100%;
+    }
+  }
+  
+  .socialCard::after {
+    border: dashed 2px rgba(255, 255, 255, 0.814);
+    width: 88%;
+    height: 88%;
+    top: 5%;
+    left: 5%;
+  }
+  
+  button {
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 100%;
+    font: var(--main-font);
+    color: rgba(255, 255, 255, 0.814);
+    font-size: var(--fs-xl);
+    text-align: center;
+    cursor: none;
+  }
+  
+  .row {
+    display: flex;
+    gap: 1em;
+  }
+  
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--font-color);
+    cursor: none;
+  }
+  
+  svg {
+    cursor: none;
+  }
+  /* -- Row One -- */
+  
+  .rowOne > .MainHeadingCard {
+    flex: 1.75;
+  }
+  
+  .rowOne > .MainHeadingCard > .colOneContent {
+    background-color: var(--accent-color);
+    height: 100%;
+    padding: 5%;
+  }
+  
+  .rowOne > .ProjectsCard {
+    flex: 1.25;
+  }
+  
+  .rowOne > .ProjectsCard > .colTwoContent {  
+    background-color: var(--primary-accent-color);
+    height: 100%;
+    border-radius: var(--base-space);
+    overflow: hidden;
+    aspect-ratio:  1.7/1;
+  }
+  
+  .mainHeading {
+    font-size: var(--fs-xxl);
+    font-weight: 350;
+    margin: 0;
+  }
+  
+  .introParagraph {
+    font-size: var(--fs-s);
+  }
+  
+  .projectsImages {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .projectDescription {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); 
+    color: white;
+    padding: 2em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .ProjectsCard:hover .projectDescription {
+    opacity: 1;
+  }
+  
+  .ProjectsCard .colTwoContent::after {
+    border: dashed 2px black;
+  }
+  
+  .ProjectsCard:hover .colTwoContent::after {
+    border: dashed 2px white;
+  }
+  
+  .projectDescription span {
+    font-size: var(--fs-xs);
+  }
+  
+  /* -- Row Two -- */
+  .rowTwo > .EducationCard {
+    flex: 2;
+  }
+  
+  .rowTwo > .EducationCard > .colOneContent {
+    background-color: var(--primary-accent-color);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0 6% 0 6%;
+    height: 100%;
+    min-height: 250px;
+    min-width: 300px;
+    font-size: var(--fs-xs);
+  }
+  
+  .educationList, .cardHeading, .educationItem > p {
+    margin: 0;
+  }
+  
+  .cardContent {
+    display: flex;
+    justify-content: center;
+    padding-top: 15%;
+  }
+  
+  .educationItem {
+    position: relative;
+  }
+  
+  .date {
+    font-size: var(--fs-xs);
+  }
+  
+  .educationItem:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: -15px;
+    height: 100%;
+    top: 10px;
+    bottom: 0;
+    width: 1px;
+    background-color: var(--font-color);
+  }
+  
+  .educationItem::marker {
+    font-size: 12pt;
+  }
+  
+  
+  .rowTwo > .colTwo {
+    flex: .5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+  }
+  
+  .rowTwo > .colThree {
+    flex: 2;
+  }
+  
+  .rowTwo > .colFour {
+    flex: 2;
+  }
+  
+  .lightDarkModeCard {
+    flex: 1;
+    height: 100%;
+  }
+  
+  .languageToggleCard {
+    flex: 1;
+  }
+  
+  .soundButton {
+    flex: 1;
+  }
+  
+  .flowerCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .flowerIcon {
+    animation: flowerAnimation 20s infinite ease-in-out;
+  }
+  
+  @keyframes flowerAnimation {
+    0% {
+      rotate: 0deg;
+    }
+    100% {
+      rotate: 360deg;
+    }
+  }
+  
+  .ProfessionCard > .colFour {
+    background-color: var(--secondary-accent-color);
+    height: 100%;
+    min-height: 250px;
+    width: 100%;
+    padding-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5em;
+  }
+  
+  .ProfessionCard > .colFour h2 {
+    margin: 0;
+  }
+
+  .ProfessionCard h3 {
+    padding: 0 1em 0 1em;
+    text-align: center;
+  }
+  
+  .ProfessionCard svg {
+    stroke: var(--font-color);
+    fill: var(--font-color);
+  }
+  
+  
+  /* -- Row Three -- */
+  
+  .rowThree {
+    width: 100%;
+    height: 8vh;
+  }
+  
+  .scrollArrowCard {
+    flex: 1;
+    text-align: center;
+    height: 100%;
+  }
+  /* -- Row Four -- */
+  
+  .rowFour > .AboutMeCard {
+    flex: 3;
+  }
+  
+  .rowFour > .AboutMeCard > .colOneContent {
+    background-color: var(--primary-accent-color);
+    height: 100%;
+    min-height: 280px;
+  }
+  
+  .rowFour >.LanguagesCard {
+    flex: 1;
+  }
+  
+  .rowFour > .LanguagesCard > .colTwoContent {
+    height: 100%;
+    background-color: var(--secondary-accent-color);
+  }
+  
+  .languagesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1em;
+    text-align: center;
+  }
+  
+  .progressBarProgress {
+    stroke: var(--font-color);
+  }
+  
+  .rowFour > .QuoteCard {
+    flex: 2;
+  }
+  
+  .rowFour > .QuoteCard > .colThreeContent {
+    height: 100%;
+    background-color: var(--accent-color);
+  }
+  
+  .rowFour > a > .card {
+    padding: 2em 2em 0 2em;
+    min-height: 250px;
+  }
+  
+  .paragraphTitle > svg {
+    fill: var(--font-color);
+  }
+  
+  .paragraphTitle {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    font-size: var(--fs-s);
+  }
+  
+  .AboutMeCard > .colOneContent > p {
+    margin: 0;
+    font-size: var(--fs-xs);
+  }
+  
+  /* -- Row Five ---- */
+  .rowFive {
+    height: 100%;
+  }
+  
+  .rowFive > .colOne {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  .rowFive > .ProjectsCard {
+    flex: 4;
+  }
+  
+  .rowFive > .ProjectsCard > .colTwoContent {
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--primary-accent-color);
+    font-size: var(--fs-l);
+  }
+  
+  .ProjectsLinksCard {
+    flex: 1;
+  }
+  
+  .ProjectsLinksCard > .card {
+    background-color: var(--primary-accent-color);
+    text-align: center;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5em;
+  }
+  
+  #downloadCv {
+    background-color: var(--secondary-accent-color);
+  }
+  
+  .ProjectsLinksCard > .card::after {
+    width: 90%;
+    height: 75%;
+    top: 12%;
+    left: 5%;
+    border-radius: 12px;
+  }
+  
+  /* -- Row Six ---- */
+  
+  .rowSix {
+    width: 100%;
+    height: 10vh;
+  }
+  
+  .ContactCard {
+    flex: 1;
+    text-align: center;
+    height: 100%;
+    color: var(--font-color);
+    font-size: var(--fs-m);
+  }
+  /* -- Row Seven ---- */
+  
+  .socialIconsCard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  .social {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+  }
+  
+  .twitterIcon {
+    flex: 1;
+    background-color: #63AED8;
+  }
+  
+  .emailIcon {
+    flex: 1;
+    background-color: var(--grey-color);
+  }
+  
+  .email {
+    color: rgba(255, 255, 255, 0.814);
+    font-size: var(--fs-emailIcon);
+  }
+  
+  .linkedinIcon {
+    flex: 1;
+    background-color: #6893D4;
+  }
+  
+  .githubIcon {
+    flex: 1;
+    background-color: #24292e;
+  }
+  
+
+  .rowSeven > .colFour {
+    flex: 1;
+  }
+  
+  .rowSeven > .colFour > .socialIconsCard {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .rowSeven > .colFour > .socialIconsCard > .social > a > svg {
+    width: 90px;
+    height: auto;
+  }
+
+
+
+@media only screen and (max-width: 600px) {
+    .portfolio {
+      display: none;
+    }
+    .flexContainer {
+      padding: 3em 1em 3em 1em;
+    }
+    .row {
+      flex-direction: column;
+    }
+    .rowOne {
+      flex-direction: column;
+    }
+    .rowOne .colTwoContent {
+      display: none;
+    }
+    .rowTwo .colThree {
+      display: none;
+    }
+    .rowTwo {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .ProfessionCard {
+      display: flex;
+    }
+    .ProfessionCard h3 {
+      width: 60vw;
+    }
+    .socialIconsCard {
+      flex-wrap: wrap;
+    }
+    .social {
+      min-height: 150px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+  .ProfessionCard {
+    display: none;
+  }
+  .rowTwo .colThree {
+    display: flex;
+  }
+  .rowSeven > .colFour > .socialIconsCard > .social > a > svg {
+    width: 50px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 460px) and (max-width: 600px) {
+  .ProfessionCard h3 {
+    width: 85vw;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .portfolio {
+    display: none;
+  }
+  .flexContainer {
+    padding: 3em 1em 3em 1em;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .rowOne {
+    flex-direction: row;
+  }
+  .rowOne .colTwoContent {
+    display: flex;
+  }
+  .rowTwo {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .rowTwo .colThree {
+    display: none;
+  }
+  .ProfessionCard {
+    display: flex;
+  }
+  .ProfessionCard h3 {
+    width: 25vw;
+  }
+  .rowFour {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .rowFive {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .socialIconsCard {
+    flex-wrap: wrap;
+  }
+  .social {
+    min-height: 200px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 640px) {
+  .ProfessionCard {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .social {
+    min-height: 200px;
+  }
+  .rowTwo .colThree {
+    display: none;
+  }
+  .ProfessionCard {
+    display: flex;
+  }
+  .ProfessionCard h3 {
+    width: 35vw;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .socialIconsCard {
+    flex-wrap: nowrap;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .portfolio {
+    display: inline;
+  }
+  .flexContainer {
+    padding: 5em 6em 8em 8em;
+  }
+  .row {
+    flex-direction: row;
+  }
+  .rowOne .colTwoContent {
+    display: flex;
+  }
+  .rowTwo {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .ProfessionCard {
+    display: flex;
+  }
+  .ProfessionCard h3 {
+    width: 30vw;
+  }
+  .social {
+    min-height: 200px;
+  }
+  .socialIconsCard {
+    flex-wrap: nowrap;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .rowTwo .colThree {
+    display: flex;
+  }
+  .ProfessionCard h3 {
+    width: 20vw;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .flexContainer {
+    padding: 5em 14em 8em 14em;
+  }
+}

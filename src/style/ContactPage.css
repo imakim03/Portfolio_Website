@@ -1,0 +1,229 @@
+.MainContactContent {
+    padding: 5em 15em 5em 15em;
+    gap: 5em;
+}
+
+.contact {
+    font-size: var(--fs-xl);
+    text-align: center;
+    margin: 0;
+}
+
+.contactContainer {
+    position: relative;
+    color: var(--font-color);
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5em;
+}
+
+.contactForm {
+    width: 70%;
+    margin: 0;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    font-size: var(--fs-xs);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.formGroup input,
+.formGroup textarea {
+    width: 100%;
+    padding: 20px;
+    border: 2px dashed var(--font-color);
+    border-radius: var(--base-space);
+    background-color: var(--background-color);
+    color: var(--font-color);
+}
+
+.column2 .formGroup {
+    height: 100%;
+}
+
+.formGroup textarea {
+    resize: vertical;
+    height: 75%;
+}
+
+.contactForm {
+    width: 100%;
+    margin: 0;
+}
+
+.formColumns {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 1em;
+}
+
+.column1 {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.column2 {
+    width: 55%;
+}
+
+.submitButton {
+    width: 100%;
+    display: inline-block;
+    padding: 20px;
+    font-size: var(--fs-s);
+    transition: all 0.3s ease;
+    color: #493548;
+    position: relative;
+    overflow: hidden;
+}
+
+.submitButton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.submitButton:hover::after {
+    opacity: 1;
+}
+
+.submitButton:hover {
+    transform: translate(2px,2px);
+    box-shadow: none;
+    color: #000;
+}
+
+.socials {
+    margin: 10% 0 10% 0;
+    width: 100%;
+    min-height: auto;
+}
+
+.socials div {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.socials p {
+    margin: 100px 0 30px 0;
+    font-size: var(--fs-xl);
+    text-align: center;
+}
+
+.responseMessage {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+    text-align: center;
+}
+
+.responseMessage::after {
+    width: 98%;
+    height: 80%;
+    border-radius: 10px;
+    left: 1%;
+    top: 8%;
+    border-color: #fff;
+}
+
+.responseMessage.success {
+    background-color: #4caf4fd9;
+    color: #fff;
+}
+
+.responseMessage.error {
+    background-color: #ed5449f4;
+    color: #fff;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .MainContactContent {
+        padding: 3em 3em 3em 3em;
+        gap: 1em;
+    }
+    .contact {
+        margin-bottom: 30px;
+    }
+    .socials div {
+        flex-wrap: wrap;
+    }
+    .formGroup {
+        margin-bottom: 5px;
+    }
+    .formColumns {
+        flex-direction: column;
+        align-items: center;
+    }
+    .column1, .column2 {
+        width: 100%;
+    }
+    .responseMessage {
+        padding: 10px 5px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .MainContactContent {
+        padding: 5em 3em 5em 3em;
+        gap: 1em;
+    }
+    .socials div {
+        flex-wrap: wrap;
+    }
+    .responseMessage {
+        padding: 10px 10px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .MainContactContent {
+        padding: 5em 5em 5em 5em;
+        gap: 3em;
+    }
+    .responseMessage {
+        padding: 10px 20px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .MainContactContent {
+        padding: 5em 15em 5em 15em;
+        gap: 5em;
+    }
+    .socials div {
+        flex-wrap: nowrap;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .MainContactContent {
+        padding: 5em 15em 5em 15em;
+        gap: 5em;
+    }
+    .socials div {
+        flex-wrap: nowrap;
+    }
+}

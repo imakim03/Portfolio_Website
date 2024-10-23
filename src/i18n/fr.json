@@ -1,88 +1,221 @@
 {
-    "homeContainer": {
-      "cursor": {
-        "learnMore": "En savoir plus",
-        "view": "Voir",
-        "refresh": "Rafraîchir",
-        "download": "Télécharger",
-        "arrowIcon": "Icône de flèche"
-      }
+  "nav": {
+    "projects": "Projets",
+    "home": "Accueil",
+    "menu": "Menu",
+    "about": "À propos",
+    "contact": "Contact",
+    "downloadCV": "Télécharger le CV"
+  },
+  "homePage": {
+    "introParagraph": "Salut, je suis Imane.",
+    "IEnjoy": "J'aime",
+    "typedText": {
+      "designing": "concevoir",
+      "coding": "programmer",
+      "developing": "développer",
+      "learning": "apprendre"
     },
-    "header": {
-      "navBar": {
-        "projects": "Projets",
-        "home": "Accueil",
-        "menu": "Menu"
-      }
+    "education": "Éducation",
+    "highSchool": "Lycée",
+    "preparatoryCycle": "Cycle préparatoire",
+    "engineeringCycle": "Cycle d'ingénierie",
+    "whoAmI": "Qui suis-je ?",
+    "cloudServicesExpert": "Experte en services cloud",
+    "networkSecurityEnthusiast": "Passionnée de sécurité réseau",
+    "creativeWebDeveloper": "Développeuse web créative",
+    "languages": "Langues",
+    "aboutMe": {
+      "getToKnow": "Apprenez à mieux me connaître",
+      "description": "Je suis une passionnée de résolution de problèmes qui aime concevoir, coder et créer des expériences numériques significatives. Avec un parcours en systèmes de réseau et développement web, je suis toujours désireuse d'apprendre et de grandir dans de nouveaux domaines."
     },
-    "portfolio": {
-      "title": "Portfolio 2024",
-      "iconAlt": "Icône de portfolio"
+    "projects": {
+      "webDev": "Projets de développement web",
+      "cloud": "Projets Cloud",
+      "networkSecurity": "Projets Réseau & Sécurité",
+      "downloadCv": "Télécharger le CV"
     },
-    "flexContainer": {
-      "rowOne": {
-        "colOne": {
-          "introParagraph": "Salut, je suis Imane.",
-          "mainHeading": {
-            "enjoy": "J'aime",
-            "typedCursor": "|"
-          }
-        },
-        "colTwo": {
-          "projectsCard": {
-            "imageAlt": "Projets"
-          }
-        }
-      },
-      "rowTwo": {
-        "colOne": {
-          "educationCard": {
-            "heading": "Éducation",
-            "educationList": [
-              {
-                "title": "Lycée",
-                "date": "2019 - 2020",
-                "location": "Lycée Al Azzouzia"
-              },
-              {
-                "title": "Cycle Préparatoire",
-                "date": "2020 - 2022",
-                "location": "Ensa Marrakech"
-              },
-              {
-                "title": "Cycle d'Ingénieur",
-                "date": "2022 - 2023",
-                "location": "Ensa Marrakech"
-              }
-            ]
-          }
-        },
-        "colTwo": {
-          "lightDarkModeCard": {
-            "iconAlt": "Mode Clair/Sombre"
-          },
-          "languageToggleCard": {
-            "button": "Fr"
-          },
-          "buttonIcon": {
-            "altText": "Icône de bouton"
-          }
-        },
-        "colThree": {
-          "flowerCard": {
-            "flowerIconAlt": "Icône de fleur"
-          }
-        },
-        "colFour": {
-          "socialIcons": {
-            "emailIcon": "Icône d'email",
-            "email": "@",
-            "twitterIcon": "Icône Twitter",
-            "linkedinIcon": "Icône LinkedIn",
-            "githubIcon": "Icône GitHub"
-          }
-        }
-      }
+    "FindMeOn": "Contactez-moi sur",
+    "cursor": {
+      "Learn More": "En savoir plus",
+      "view": "voir",
+      "Refresh": "Actualiser",
+      "Download": "Télécharger"
     }
+  },
+  "aboutMePage": {
+    "aboutMe": "À propos de moi",
+    "aboutMeText": "Je suis Imane Kimissi, une <strong>future ingénieure</strong> passionnée en systèmes de réseau et services programmables, prévue pour obtenir mon diplôme en juin 2025. J'ai une forte expérience en développement web, en sécurité réseau et en cloud computing, ainsi qu'un amour pour le <strong>design créatif</strong> et la <strong>résolution de problèmes</strong>. Mon travail se concentre sur le développement de solutions <strong>efficaces, sécurisées et conviviales</strong>. J'éprouve une satisfaction face aux défis qui repoussent mes limites techniques et créatives. En dehors de la technologie, j'aime la philosophie, la musique et explorer les intersections entre technologie et créativité.",
+    "PFE": "Actuellement à la recherche d'un stage PFE.",
+    "motivations": "Motivations",
+    "motivationsText1": "Ma principale motivation découle d'un profond désir de <strong>combler le fossé</strong> entre la technologie et la conception centrée sur l'humain. Je crois que la technologie doit servir d'outil pour <strong>améliorer la vie des gens</strong>, en rendant leurs expériences plus efficaces et significatives.",
+    "motivationsText2": "Mon équipe idéale est celle qui <strong>embrasse la diversité</strong> et <strong>encourage le mentorat</strong>, créant ainsi une culture de croissance partagée et d'innovation. Je suis enthousiaste à l'idée d'apprendre de mes collègues tout en partageant mes propres connaissances et perspectives. Ensemble, je crois que nous pouvons repousser les limites technologiques et créer des solutions qui <strong>font vraiment la différence.</strong>",
+    "education": "Éducation",
+    "bacTitle": "Baccalauréat en sciences physiques, option française",
+    "bacGraduated": "Diplômée : 2020",
+    "bacDetails": [
+      "Diplômée avec très bonnes mentions",
+      "Axée sur les mathématiques, la physique et la chimie"
+    ],
+    "prepCycleTitle": "Cycle préparatoire - École nationale des sciences appliquées, Marrakech",
+    "prepCycleDate": "2021 – 2022",
+    "prepCycleDetails": [
+      "Achèvement d'un programme rigoureux en mathématiques, physique et informatique."
+    ],
+    "engineerDegreeTitle": "Diplôme d'ingénieur en systèmes de réseau et services programmables, prévu pour juin 2025",
+    "engineerDegreeDate": "Diplôme prévu : juin 2025",
+    "engineerDegreeCoursework": "Le programme comprend l'architecture réseau, l'informatique en nuage et la programmation",
+    "currentlyWorkingOn": "Actuellement en train de travailler sur ",
+    "and": " et ",
+    "projects": {
+      "fiveGNetwork": "réseau virtualisé 5G",
+      "iotProject": "Modélisation et détection d'objets connectés dans un bâtiment intelligent"
+    },
+    "skills": "Compétences",
+    "experience": "Expérience",
+    "internAtOCP": "Stagiaire chez OCP",
+    "ocpGroup": "Groupe OCP (Office Chérifien des Phosphates)",
+    "july2024Sep2024": "Juillet 2024 - Septembre 2024",
+    "projectOverview": "Aperçu du Projet",
+    "internshipDescription": "J'ai développé une application web avec <strong>React</strong> et <strong>Laravel</strong> pour gérer les données des machines de forage via une <strong>interface conviviale</strong> permettant de mettre à jour et inspecter la base de données. J'ai aussi intégré un <strong>système externe</strong> pour <strong>remplir automatiquement les champs</strong> des formulaires avec les nouvelles données.",
+    "seeMoreAboutTheProject": "Voir plus sur le projet dans la section des projets",
+    "viewProjects": "Voir les Projets"
+  },
+  "projectsPage": {
+    "projects": {
+    "webdev": "Projets • Développement Web",
+    "cloud": "Projets • Cloud",
+    "network": "Projets • Réseau & Sécurité",
+    "small": "Projets • Petits Projets",
+    "other": "Projets • Autres"
+  },
+  "nav": {
+    "webdev": "Projets Dév Web",
+    "cloud": "Projets Cloud",
+    "network": "Projets Réseau",
+    "small": "Petits Projets",
+    "other": "Autres Projets"
+  },
+  "webDev": {
+      "nav": {
+        "blogWebsite": "Blog Site Web",
+        "portfolioWebsite": "Portfolio Site Web",
+        "ocpProject": "Application Web pour les Informations sur les Machines de Forage"
+      },
+      "portfolioWebsite": {
+        "title": "Portfolio Site Web",
+        "description": "Ce site web de portfolio est hébergé sur GitHub et sert de vitrine personnelle pour mes projets et compétences. Le site est conçu pour présenter mon travail de manière <strong>esthétiquement agréable</strong> et <strong>conviviale</strong>.",
+        "tools": "HTML - CSS - JavaScript"
+      },
+      "drillingMachine": {
+        "title": "Application de Gestion des Machines de Forage",
+        "description": "Cette application est conçue pour faciliter la gestion des machines de forage, permettant aux utilisateurs de saisir, inspecter et modifier facilement les données des machines. Le projet est construit avec <strong>React</strong> pour le front-end et <strong>Laravel</strong> pour le back-end. Il comprend des fonctionnalités pour les <strong>opérations CRUD</strong> sur les données des machines de forage et une interface utilisateur responsive.De plus, j'ai intégré l'application à un autre <strong>système externe</strong>, permettant d'envoyer les nouvelles données ajoutées pour <strong>remplir automatiquement les champs</strong> dans les formulaires du système externe.",
+        "tools": "React - Laravel - MySQL"
+      },
+      "blogWebsite": {
+        "title": "Blog Site Web",
+        "description": "Ce projet est un site web de blog construit avec <strong>Flask</strong> et <strong>Bootstrap</strong>. Il permet aux utilisateurs de <strong>s'inscrire</strong>, de <strong>se connecter</strong> et de <strong>publier</strong> ou de <strong>commenter</strong> des articles. Les administrateurs peuvent gérer les publications en <strong>créant</strong>, <strong>éditant</strong> et <strong>supprimant</strong> celles-ci. Les principales fonctionnalités incluent <strong>l'authentification des utilisateurs</strong> et un <strong>système de commentaires</strong>. Le code intègre Flask pour la gestion du backend et Bootstrap pour l'interface utilisateur front-end.",
+        "tools": "Flask - SQLite - Bootstrap - Flask-WTF"
+      }
+    },
+    "cloud": {
+        "nav": {
+          "openVpn": "Serveur OpenVPN sur AWS",
+          "pipeline": "Déploiement du Pipeline sur Azure",
+          "fiveG": "Déploiement d'un Réseau 5G Virtualisé sur Azure"
+        },
+        "openVPN": {
+            "title": "Serveur OpenVPN sur AWS",
+            "description": "Dans ce projet, nous avons configuré et déployé un <strong>serveur OpenVPN</strong> sur AWS, tirant parti de la <strong>scalabilité</strong> et des <strong>fonctionnalités de sécurité</strong> du cloud. Nous avons utilisé <strong>Amazon EC2</strong> pour héberger le serveur VPN, garantissant une infrastructure flexible et fiable. L'<strong>IP Élastique</strong> d'AWS a été utilisée pour fournir une adresse publique statique, permettant un accès constant au VPN. Les <strong>Groupes de Sécurité</strong> ont été configurés pour contrôler le trafic entrant et sortant, garantissant que seuls les ports nécessaires (comme le 1194 pour OpenVPN) étaient accessibles. La configuration basée sur le cloud a permis une <strong>mise à l'échelle</strong>, un <strong>suivi</strong> et une <strong>gestion faciles de l'infrastructure VPN</strong>, offrant un accès sécurisé à notre réseau.",
+            "tools": "AWS (EC2) - OpenVPN - SSH - Linux - AWS (CLI)"
+        },
+        "pipeline": {
+            "title": "Pipeline Azure DevOps pour le déploiement ASP.NET sur Azure",
+            "description": "Dans le cadre d'un projet de groupe académique, nous avons mis en place un <strong>pipeline CI/CD</strong> utilisant Azure DevOps pour automatiser la construction et le déploiement d'une <strong>application web ASP.NET</strong> sur Azure App Service. Le processus a impliqué la configuration du pipeline de construction pour compiler l'application, exécuter des tests et générer des artefacts de construction. Ensuite, un <strong>pipeline de publication</strong> a été établi pour déployer automatiquement l'application construite sur <strong>Azure App Service</strong>, garantissant des <strong>mises à jour sans faille</strong> à chaque engagement dans le référentiel. L'intégration cloud a fourni <strong>scalabilité</strong>, <strong>déploiement continu</strong> et <strong>gestion rationalisée</strong> grâce à l'infrastructure d'Azure.",
+            "tools": "Azure (DevOp) - Azure (App Service) - ASP.NET - Git - Azure Repos"
+        },
+        "Fiveg": {
+            "title": "Déploiement d'un réseau 5G virtualisé sur Azure",
+            "description": "Ce projet se concentre sur le déploiement d'un <strong>réseau 5G virtualisé</strong> sur une plateforme cloud, en utilisant <strong>Microsoft Azure</strong> pour héberger les composants clés du réseau. L'objectif est de simuler une architecture complète 5G, où les fonctions du réseau central <strong>(CN)</strong>, y compris la fonction de gestion de l'accès et de la mobilité <strong>(AMF)</strong>, la fonction de gestion de session <strong>(SMF)</strong> et la fonction de plan de données <strong>(UPF)</strong>, sont mises en œuvre à l'aide de <strong>Open5GS</strong>. Le réseau d'accès radio <strong>(RAN)</strong> est simulé avec <strong>srsRAN</strong>. L'ensemble de l'architecture est hébergé sur <strong>des machines virtuelles Azure</strong>, en utilisant des solutions de mise en réseau Azure telles que le réseau virtuel Azure <strong>(VNet)</strong> pour la communication interne entre les composants. Cette configuration permet de tester et de démontrer un réseau 5G dans un environnement cloud, mettant en avant la <strong>flexibilité</strong> et la <strong>scalabilité</strong> de l'infrastructure basée sur le cloud.",
+            "tools": "Azure - Open5GS - srsRAN - Docker - Azure Virtual Network (VNet) - VMs Ubuntu"
+        }
+    },
+    "network": {
+      "nav": {
+        "Fiveg": "Déploiement d'un réseau 5G virtualisé sur Azure",
+        "openVPN": "Serveur OpenVPN sur AWS",
+        "ids": "Système de détection d'intrusions utilisant l'apprentissage automatique et Zeek",
+        "Fourg": "Simulation de réseau 4G dans Atoll"
+      },
+      "Fiveg": "Déploiement d'un Réseau 5G Virtualisé sur Azure",
+      "FivegDescription": "Ce projet consiste à construire une architecture de réseau 5G virtualisé en déployant des composants de réseau de cœur (CN) et de réseau d'accès radio (RAN) dans un environnement cloud Azure. Les fonctions du réseau de cœur, telles que la gestion de la mobilité et des sessions, sont mises en œuvre à l'aide d'Open5GS, tandis que le RAN est simulé avec srsRAN. Ces composants sont hébergés sur des machines virtuelles (VM), avec des solutions de mise en réseau cloud facilitant leur interaction. L'objectif principal est de démontrer la flexibilité, la scalabilité et l'efficacité de l'utilisation d'une infrastructure cloud pour simuler un réseau 5G complet, permettant un déploiement et une gestion faciles des composants réseau.",
+      "toolsFiveg": "Azure - Open5GS - srsRAN - Docker - Réseau Virtuel Azure (VNet) - VMs Ubuntu",
+      "openVPN": "Serveur OpenVPN sur AWS",
+      "openVPNDescription": "Ce projet a consisté à configurer et déployer un serveur OpenVPN sur AWS pour faciliter un accès sécurisé à distance à un réseau. La configuration a utilisé divers services AWS pour garantir scalabilité, fiabilité et sécurité. En tirant parti de l'infrastructure cloud, le projet vise à fournir une solution VPN robuste, permettant aux utilisateurs de se connecter en toute sécurité aux ressources via Internet tout en maintenant la confidentialité des données.",
+      "toolsOpenVPN": "AWS (EC2) - OpenVPN - SSH - Linux - AWS (CLI)",
+      "ids": "Système de Détection d'Intrusions Utilisant l'Apprentissage Automatique et Zeek",
+      "idsDescription": "Ce projet de groupe académique s'est concentré sur le développement d'un Système de Détection d'Intrusions (IDS) utilisant des techniques d'apprentissage automatique pour améliorer la sécurité du réseau. Le système a été conçu pour analyser le trafic réseau capturé par Zeek, un moniteur de sécurité réseau open-source, afin d'identifier des anomalies et de détecter des intrusions potentielles en temps réel. Un autoencodeur a été employé comme modèle d'apprentissage automatique en raison de son efficacité à apprendre des représentations compressées des données, permettant au système d'identifier efficacement les écarts par rapport au comportement normal. Cette approche vise à améliorer la précision et l'efficacité de la détection des menaces, fournissant aux organisations une méthode proactive pour protéger leurs réseaux.",
+      "toolsIDS": "Python - Scikit-learn - Pandas - NumPy - TensorFlow - Zeek - Autoencodeurs",
+      "Fourg": "Simulation de Réseau 4G avec Atoll",
+      "FourgDescription": "Ce projet consiste à simuler un réseau cellulaire 4G en utilisant Atoll, un logiciel bien connu de planification et d'optimisation radio. L'objectif de la simulation est d'évaluer les performances du réseau, d'optimiser la couverture et d'analyser des indicateurs clés tels que la force du signal, les niveaux d'interférence et la capacité.",
+      "toolsFourg": "Atoll"
+    },
+  "small": {
+    "nav": {
+        "yesOrNo": "Application de Roue Oui ou Non",
+        "desktopCleaner": "Script d'Automatisation de Nettoyage de Bureau",
+        "rockPaperScissors": "Jeu Pierre-Papier-Ciseaux",
+        "memoryGame": "Jeu Mobile de Mémoire",
+        "watermarkApp": "Application Python de Filigrane"
+    },
+    "yesOrNo": {
+        "title": "Application de Roue Oui ou Non pour Bureau",
+        "description": "Ce projet est une <strong>application simple</strong> de prise de décision construite avec <strong>Electron.js</strong>, permettant aux utilisateurs de saisir des <strong>entrées personnalisables</strong> dans une <strong>roue</strong>. Lorsqu'elle est tournée, l'application sélectionne au hasard une réponse '<strong>Oui</strong>' ou '<strong>Non</strong>' pour aider les utilisateurs dans leurs décisions. L'application dispose d'une <strong>interface conviviale</strong> et d'<strong>options d'entrée personnalisables</strong> pour plus de flexibilité.",
+        "tools": "<strong>Electron.js</strong> - <strong>HTML</strong> - <strong>CSS</strong> - <strong>JavaScript</strong>"
+    },
+    "desktopCleaner": {
+        "title": "Script d'Automatisation de Nettoyage de Bureau",
+        "description": "Ce script <strong>Python</strong> organise automatiquement votre <strong>bureau</strong> en triant les <strong>fichiers</strong> dans des dossiers catégorisés en fonction de leurs <strong>extensions</strong>, telles que les <strong>images</strong>, les <strong>vidéos</strong>, les <strong>exécutables</strong>, etc. Les <strong>fichiers</strong> commençant par <strong>_imp</strong> sont déplacés vers un dossier 'important' dédié. Si un <strong>fichier</strong> portant le même nom existe déjà dans le dossier de destination, le script le gère en ajoutant un <strong>identifiant unique</strong> pour éviter d'écraser. Il fonctionne en arrière-plan, envoyant des <strong>notifications en temps réel</strong> via <strong>Windows Toast</strong> lorsque des <strong>fichiers</strong> sont déplacés. De plus, il est programmé pour s'exécuter au <strong>démarrage du système</strong> via le <strong>Planificateur de tâches</strong>.",
+        "tools": "<strong>Python</strong> - <strong>Shutil</strong> - <strong>OS</strong> - <strong>Subprocess</strong> - <strong>win10</strong> - <strong>Toast</strong>"
+    },
+    "rockPaperScissors": {
+        "title": "Jeu Pierre-Papier-Ciseaux",
+        "description": "<strong>JavaScript-Mini-Projects</strong> est une collection de projets basiques visant à aider les débutants à apprendre <strong>JavaScript</strong> et ses <strong>technologies associées</strong>. J'ai contribué à ce dépôt en construisant le <strong>jeu Pierre-Papier-Ciseaux</strong> et en l'ajoutant à la <strong>collection de projets</strong>. C'est un <strong>excellent projet</strong> pour démontrer l'utilisation de la <strong>logique JavaScript</strong> et de la <strong>manipulation du DOM</strong>.",
+        "tools": "<strong>HTML</strong> - <strong>CSS</strong> - <strong>JavaScript</strong>"
+    },
+    "memoryGame": {
+        "title": "Jeu Mobile de Mémoire",
+        "description": "C'est un <strong>Jeu de Mémoire</strong> développé avec <strong>Android Studio</strong> avec <strong>Kotlin</strong>. Le jeu implique une <strong>grille simple</strong> de blocs où un joueur se voit montrer un <strong>motif de blocs</strong> surlignés pendant un bref moment. Le joueur doit ensuite <strong>mémoriser le motif</strong> et le reproduire en touchant les <strong>bons blocs</strong>. Au fur et à mesure que le jeu progresse, la <strong>complexité augmente</strong> à mesure que le motif surligné devient plus long, mettant au défi la <strong>mémoire</strong> du joueur.",
+        "tools": "<strong>Android Studio</strong> - <strong>Kotlin</strong>"
+    },
+    "watermarkApp": {
+        "title": "Application Python de Filigrane",
+        "description": "L'application de <strong>filigrane</strong> (watermark) est une <strong>simple application Python</strong> construite avec <strong>Tkinter</strong> pour ajouter des <strong>filigranes</strong> aux <strong>images</strong>. Les utilisateurs peuvent faire glisser et déposer des <strong>images</strong> dans l'application, parcourir des <strong>images</strong> et des <strong>filigranes</strong>, personnaliser la <strong>position du filigrane</strong> (en haut à gauche, en haut à droite, en bas à gauche, en bas à droite), ajuster la <strong>taille du filigrane</strong> et télécharger les <strong>images avec filigrane</strong>.",
+        "tools": "<strong>Python</strong> - <strong>Tkinter</strong> - <strong>Pillow</strong> - <strong>OS</strong>"
+    }
+  },
+  "other": {
+    "iotProject": {
+        "title": "Modélisation et Détection d'Objets Connectés dans un Bâtiment Intelligent",
+        "description": "Ce projet se concentre sur la <strong>modélisation</strong> et la <strong>détection d'objets connectés</strong> (tels que des capteurs, caméras, thermostats) au sein d'un <strong>bâtiment intelligent</strong> à l'aide de simulations et de scénarios basés sur l'IoT. L'objectif est de concevoir un système qui modélise les interactions de ces dispositifs, permettant une détection <strong>automatique</strong> et <strong>efficace</strong>, améliorant ainsi la <strong>gestion</strong> et l'<strong>efficacité énergétique</strong> du bâtiment. Les fonctionnalités clés comprennent la <strong>modélisation des objets connectés</strong>, la <strong>détection automatique</strong> des appareils IoT, la <strong>création de scénarios IoT</strong>, la <strong>programmation Python</strong> pour la gestion des données, et <strong>l'analyse des performances</strong> pour améliorer la consommation d'énergie et la sécurité.<br/>⁕ Ce projet est toujours en cours.",
+        "tools": "Cisco Packet Tracer - Python - IoT - Création de Scénario"
+    },
+    "linuxServer": {
+        "title": "Mise en Place d'une Infrastructure Serveur Linux pour la Gestion de Salle Informatique",
+        "description": "Ce projet se concentre sur le développement d'une <strong>infrastructure robuste</strong> pour la gestion d'une <strong>salle informatique</strong>, répondant à des exigences clés telles que <strong>l'allocation d'adresses IP automatisée</strong>, <strong>la surveillance des machines en temps réel</strong>, et <strong>le stockage partagé centralisé</strong>. Le projet tire parti de plusieurs technologies critiques, notamment un <strong>serveur DHCP</strong> pour l'<strong>assignation dynamique d'IP</strong>, un <strong>serveur de stockage TrueNAS</strong> pour une <strong>gestion sécurisée des données</strong>, et <strong>Zabbix</strong> pour une <strong>surveillance complète</strong> de la santé des systèmes.",
+        "tools": "Linux - DHCP - Zabbix - TrueNAS"
+    }
+    }
+  },
+  "contactPage": {
+    "leaveMessage": "Laissez un message",
+    "subject": "Objet",
+    "name": "Nom",
+    "email": "E-mail",
+    "message": "Message",
+    "sendMessage": "Envoyer le message",
+    "orGetInTouch": "Ou, contactez-moi sur",
+    "messageSuccess": "Votre message a été envoyé, merci de me contacter !",
+    "messageError": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer plus tard."
   }
-  
+}

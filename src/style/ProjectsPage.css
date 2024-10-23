@@ -1,0 +1,320 @@
+.sideBarProjects {
+    width: 20%;
+    position: relative;
+}
+
+.MainProjectsContent {
+    padding: 4em 5em 1em 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 90px);
+    height: calc(100svh - 90px);
+}
+
+.sectionContent {
+    height: 100%;
+}
+
+.MainProjectsContent .ProjectsContent > section {
+    padding: var(--base-space);
+    height: calc(100vh - 280px);
+    height: calc(100svh - 280px);
+    position: relative;
+    background-color: var(--background-color);
+    border: dashed 2px var(--font-color);
+    border-radius: var(--base-space);
+}
+
+.sectionContent {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sectionContent .scrollableContent section {
+    /* height: 100%; */
+    padding: 0;
+    scroll-snap-align: start;
+}
+
+.projectTitle {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+#Tools {
+    margin: 3% 0;
+}
+
+.linkIcon {
+    stroke: var(--font-color);
+    fill: none;
+}
+
+.projectTitle:hover {
+    stroke-width: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.ToolsIcon {
+    fill: var(--font-color);
+    border: dashed 2px var(--font-color);
+    border-radius: 50%;
+    padding: 0.5em;
+    box-sizing: content-box;
+}
+
+#Tools {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.projectIcon {
+    width: 25px;
+    height: auto;
+}
+
+.images {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.MainProjectsContent img {
+    border: solid 2px var(--grey-color);
+    border-radius: var(--base-space);
+    width: 30%;
+}
+
+nav {
+    display: flex;
+    gap: 1.5em;
+    flex-direction: column;
+    position: absolute;
+    left: 5%;
+    width: 100%;
+    transform: translateX(-50%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+nav div {
+    font-size: var(--fs-xs);
+    font-weight: bold;
+    background-color: var(--primary-accent-color);
+    color: var(--font-color);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6em;
+    border-radius: var(--base-space);
+    border: dashed 2px var(--font-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    pointer-events: all;
+}
+
+nav div:hover {
+    width: 170px;
+}
+
+nav div svg {
+    width: 25px;
+    height: 25px;
+}
+
+nav div span {
+    opacity: 0;
+    transition: all 0.3s ease; 
+    white-space: nowrap;
+    transform: translateX(-10px);
+    font-size: var(--fs-xs);
+}
+
+nav div:hover span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+nav .active {
+    background-color: #edbbd4;
+}
+
+.projectsDomain {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+.projectsDomain h1 {
+    font-size: var(--fs-xs);
+}
+
+.ProjectsContent {
+    background-color: var(--background-color);
+    z-index: 2;
+}
+
+section h2 {
+    font-size: var(--fs-m);
+}
+
+section p {
+    font-size: var(--fs-xs);
+}
+
+@media only screen and (max-width: 600px) {
+    .MainProjectsContent {
+        padding: 2em 1em 1em 1em;
+    }
+
+    nav {
+        display: flex;
+        gap: .75em;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        left: 0%;
+        top: auto;
+        bottom: 10%;
+        width: 100%;
+        transform: translateX(0%);
+    }
+    nav div {
+        padding: 2%;
+    }
+    nav div:hover {
+        width: 130px;
+    }
+    nav div:hover svg {
+        display: none;
+    }
+    .scrollableContent section:not(:first-child) {
+        padding-top: 50px;
+    }
+    section p {
+        margin: 0;
+    }
+    .MainProjectsContent img {
+        width: 45%;
+    }
+    .smallerImages img {
+        width: 20%;
+    }
+    .sectionContent .scrollableContent section {
+        height: auto ;
+        scroll-snap-align: none;
+    }
+}
+
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+   
+}
+  
+
+@media only screen and (min-width: 600px) {
+    .MainProjectsContent {
+        padding: 2em 5em 2em 5em;
+    }
+
+    nav {
+        display: flex;
+        gap: .75em;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        left: 0%;
+        top: auto;
+        bottom: 10%;
+        width: 100%;
+        transform: translateX(0%);
+    }
+    nav div {
+        padding: 2%;
+    }
+    nav div:hover {
+        width: 130px;
+    }
+    nav div:hover svg {
+        display: none;
+    }
+    .ProjectsContent .scrollableContent section:not(:first-child) {
+        padding-top: 50px;
+    }
+    section p {
+        margin: 0;
+    }
+    .MainProjectsContent img {
+        width: 45%;
+    }
+    .sectionContent .scrollableContent section {
+        height: auto ;
+        scroll-snap-align: none;
+    }
+}
+  
+  @media only screen and (min-width: 768px) {
+    .MainProjectsContent {
+        padding: 4em 4em 1em 8em;
+    }
+    nav {
+        display: flex;
+        gap: 1.5em;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        left: 5%;
+        top: 0em;
+        width: 3%;
+        transform: translateX(-50%);
+        z-index: 3;
+    }
+    .ProjectsContent .scrollableContent section:not(:first-child) {
+        padding-top: 0;
+    }
+    nav div {
+        padding: 5%;
+    }
+    nav div:hover {
+        width: 170px;
+    }
+    nav div:hover svg {
+        display: inline;
+    }
+    .sectionContent .scrollableContent section {
+        height: 100%;
+        padding: 0;
+        scroll-snap-align: start;
+    }
+    .MainProjectsContent img {
+        width: 30%;
+    }
+    .smallerImages img {
+        width: 17%;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    nav {
+        display: flex;
+        gap: 1.5em;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        left: 5%;
+        top: 0em;
+        width: 3%;
+        transform: translateX(-50%);
+        z-index: 3;
+    }
+    .smallerImages img {
+        width: 15%;
+    }
+  }

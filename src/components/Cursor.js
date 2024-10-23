@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
-import '../style/cursor.css'
+import { useTranslation } from 'react-i18next';
+import '../Style/cursor.css'
 
 function Cursor({ mousePosition, style, cursorVarient, variants, isVisible }) {
+    const { t } = useTranslation();
+
     return (
       <motion.div
         className="cursor"
@@ -9,10 +12,10 @@ function Cursor({ mousePosition, style, cursorVarient, variants, isVisible }) {
         variants={variants}
         animate={cursorVarient}>
 
-        <span className="cursorIcon cursorLearnMore">Learn More</span>
-        <span className="cursorIcon cursorView">view</span>
-        <span className="cursorIcon cursorRefresh">Refresh</span>
-        <span className="cursorIcon cursorDownload">Download</span>
+          <span className="cursorIcon cursorLearnMore">{t('homePage.cursor.Learn More')}</span>
+          <span className="cursorIcon cursorView">{t('homePage.cursor.view')}</span>
+          <span className="cursorIcon cursorRefresh">{t('homePage.cursor.Refresh')}</span>
+          <span className="cursorIcon cursorDownload">{t('homePage.cursor.Download')}</span>
         <span className="cursorIcon cursorArrow">
           <svg
             viewBox="0 0 24 24"

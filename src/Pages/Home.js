@@ -12,14 +12,15 @@ import ProjectsLinksCards from '../Cards/ProjectsLinksCards';
 import ContactCard from '../Cards/ContactCard';
 import Profession from '../Cards/ProfessionCard';
 import { useCustomCursor } from '../Hooks/useCustomCursor';
-import Cursor from '../components/Cursor';
-import NavBar from '../components/NavBar';
-import ScrollToTopButton from '../components/scrollToTopButton';
-import Footer from '../components/Footer';
+import Cursor from '../Components/Cursor';
+import NavBar from '../Components/NavBar';
+import ScrollToTopButton from '../Components/scrollToTopButton';
+import Footer from '../Components/Footer';
 import { motion } from 'framer-motion';
-import '../App.css';
+import Transition from '../Components/Transition';
+import '../Style/HomePage.css';
 
-function HomePage() {
+function HomePage(pageRef) {
   const { 
     isVisible,
     cursorVarient,
@@ -39,7 +40,7 @@ function HomePage() {
 
     return(
         <motion.div 
-        className="homeContainer pageContainer"
+        className={`homeContainer pageContainer ${document.fullscreenElement ? 'fullscreenContent' : ''}`}
         initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -90,6 +91,7 @@ function HomePage() {
                 <UtilityCards
                   cursorEnterCardHover={cursorEnterCardHover}
                   cursorLeaveCardHover={cursorLeaveCardHover}
+                  pageRef={pageRef}
                 />
 
                 <FlowerCard
@@ -121,8 +123,8 @@ function HomePage() {
                   cursorLeaveCard={cursorLeaveCard}
                 />
                 <QuoteCard
-                  cursorEnterCardHover={cursorEnterCardHover}
-                  cursorLeaveCardHover={cursorLeaveCardHover}
+                  cursorEnterCard={cursorEnterCard}
+                  cursorLeaveCard={cursorLeaveCard}
                 />
               </div>
               <div className='row rowFive'>
@@ -154,4 +156,4 @@ function HomePage() {
     );
 }
 
-export default HomePage;
+export default Transition(HomePage);

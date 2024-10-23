@@ -1,88 +1,226 @@
 {
-    "homeContainer": {
-      "cursor": {
-        "learnMore": "Learn More",
-        "view": "View",
-        "refresh": "Refresh",
-        "download": "Download",
-        "arrowIcon": "Arrow Icon"
-      }
+  "nav": {
+    "projects": "Projects",
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About",
+    "contact": "Contact",
+    "downloadCV": "Download CV"
+  },
+
+  "homePage": {
+    "introParagraph": "Hi, I'm Imane.",
+    "IEnjoy": "I enjoy",
+    "typedText": {
+      "designing": "designing",
+      "coding": "coding",
+      "developing": "developing",
+      "learning": "learning"
     },
-    "header": {
-      "navBar": {
-        "projects": "Projects",
-        "home": "Home",
-        "menu": "Menu"
-      }
+    "education": "Education",
+    "highSchool": "High School",
+    "preparatoryCycle": "Preparatory Cycle",
+    "engineeringCycle": "Engineering Cycle",
+    "whoAmI": "Who Am I?",
+    "cloudServicesExpert": "Cloud Services Expert",
+    "networkSecurityEnthusiast": "Network Security Enthusiast",
+    "creativeWebDeveloper": "Creative Web Developer",
+    "languages": "Languages",
+    "aboutMe": {
+          "getToKnow": "Get to know me better",
+          "description": "I’m a passionate problem-solver who loves to design, code, and create meaningful digital experiences. With a background in network systems and web development, I’m always eager to learn and grow in new areas."
     },
-    "portfolio": {
-      "title": "Portfolio 2024",
-      "iconAlt": "Portfolio Icon"
+    "projects": {
+          "webDev": "Web Dev Projects",
+          "cloud": "Cloud Projects",
+          "networkSecurity": "Network & Security Projects",
+          "downloadCv": "Download CV"
     },
-    "flexContainer": {
-      "rowOne": {
-        "colOne": {
-          "introParagraph": "Hi, I'm Imane.",
-          "mainHeading": {
-            "enjoy": "I enjoy",
-            "typedCursor": "|"
-          }
+    "FindMeOn": "Get in touch with me on",
+    "cursor": {
+      "Learn More": "Learn More",
+      "view": "view",
+      "Refresh": "Refresh",
+      "Download": "Download"
+    }
+  },
+
+  "aboutMePage": {
+    "aboutMe": "About Me",
+    "aboutMeText": "I am Imane Kimissi, a passionate <strong>future engineer</strong> in Network Systems and Programmable Services, expected to graduate in June 2025. I have strong experience in web development, network security, and cloud computing, along with a love for <strong>creative design</strong> and <strong>problem-solving</strong>. My work focuses on developing <strong>efficient, secure, and user-friendly</strong> solutions. I thrive on challenges that push my technical and creative boundaries. Beyond tech, I enjoy philosophy, music, and exploring the intersections between technology and creativity.",
+    "PFE": "Currently seeking a PFE internship",
+    "motivations": "Motivations",
+    "motivationsText1": "My primary motivation stems from a deep-seated desire to <strong>bridge the gap</strong> between technology and human-centered design. I believe that technology should serve as a tool to <strong>enhance people's lives</strong>, making their experiences more efficient and meaningful.",
+    "motivationsText2": "I am inspired by teams that foster creativity, encourage autonomy, and prioritize continuous learning. My ideal team is one that <strong>embraces diversity</strong> and <strong>nurtures mentorship</strong>, creating a culture of shared growth and innovation. I am excited to learn from my peers while also sharing my own knowledge and insights. Together, I believe we can push technological boundaries and create solutions that truly <strong>make a difference.</strong>",
+    "education": "Education",
+    "bacTitle": "Baccalauréat in Physical Sciences, French Option",
+    "bacGraduated": "Graduated: 2020",
+    "bacDetails": [
+        "Graduated with Very Good Honors",
+        "Focused on mathematics, physics, and chemistry"
+    ],
+    "prepCycleTitle": "Preparatory Cycle - National School of Applied Science, Marrakech",
+    "prepCycleDate": "2021 – 2022",
+    "prepCycleDetails": [
+        "Completed a rigorous curriculum in mathematics, physics, and computer science"
+    ],
+    "engineerDegreeTitle": "Engineer’s Degree in Network Systems and Programmable Services, expected June 2025",
+    "engineerDegreeDate": "Expected Graduation: June 2025",
+    "engineerDegreeCoursework": "Coursework includes network architecture, cloud computing, and programming",
+    "currentlyWorkingOn": "Currently working on ",
+    "and": " and ",
+    "projects": {
+      "fiveGNetwork": "5G virtualized network",
+      "iotProject": "Modeling and Detection of Connected Objects in a Smart Building"
+    },
+    "skills": "Skills",
+    "experience": "Experience",
+    "internAtOCP": "Intern at OCP",
+    "ocpGroup": "OCP Group (Office Chérifien des Phosphates)",
+    "july2024Sep2024": "July 2024 - Sep 2024",
+    "projectOverview": "Project Overview",
+    "internshipDescription": "I developed a web app using <strong>React</strong> and <strong>Laravel</strong> to manage drilling machine data with a <strong>user-friendly interface</strong> for database updates and inspections. I also integrated it with an <strong>external system</strong> to <strong>auto-fill form fields</strong> with new data.",    "seeMoreAboutTheProject": "See more about the project in projects section",
+    "viewProjects": "View Projects"
+  },
+
+  "projectsPage": {
+    "projects": {
+      "webdev": "Projects • Web Development",
+      "cloud": "Projects • Cloud",
+      "network": "Projects • Network & Security",
+      "small": "Projects • Small Projects",
+      "other": "Projects • Other"
+    },
+    "nav": {
+      "webdev": "Web Dev Projects",
+      "cloud": "Cloud Projects",
+      "network": "Network Projects",
+      "small": "Small Projects",
+      "other": "Other Projects"
+    },
+    "webDev": {
+        "nav": {
+            "blogWebsite": "Blog Website",
+            "portfolioWebsite": "Portfolio Website",
+            "ocpProject": "Web Application for Drilling Machine Informations"
         },
-        "colTwo": {
-          "projectsCard": {
-            "imageAlt": "Projects"
-          }
+        "portfolioWebsite": {
+          "title": "Portfolio Website",
+          "description": "This is my old portfolio website, hosted on GitHub, which serves as a personal showcase of my projects and skills. The site is designed to present my work in an <strong>aesthetically pleasing</strong> and <strong>user-friendly manner</strong>.",
+          "tools": "HTML - CSS - JavaScript"
+        },
+        "drillingMachine": {
+          "title": "Drilling Machine Management Application",
+          "description": "This application is designed to facilitate the management of drilling machines, allowing users to enter, inspect, and modify machine data with ease. The project is built using <strong>React</strong> for the front-end and <strong>Laravel</strong> for the back-end. It includes features for <strong>CRUD operations</strong> on drilling machine data and a responsive user interface. Additionally, I integrated the application with another <strong>external system</strong>, enabling it to send newly added data to <strong>automatically populate fields</strong> in the external system's forms.",
+          "tools": "React - Laravel - MySQL"
+        },
+        "blogWebsite": {
+          "title": "Blog Website",
+          "description": "This project is a blog website built with <strong>Flask</strong> and <strong>Bootstrap</strong>. It allows users to <strong>register</strong>, <strong>log in</strong>, and <strong>post</strong> or <strong>comment</strong> on blogs. Admins can manage the posts by <strong>creating</strong>, <strong>editing</strong>, and <strong>deleting</strong> them. The main features include <strong>user authentication</strong> and a <strong>commenting system</strong>. The code integrates Flask for backend management and Bootstrap for the front-end UI.",
+          "tools": "Flask - SQLite - Bootstrap - Flask-WTF"
         }
       },
-      "rowTwo": {
-        "colOne": {
-          "educationCard": {
-            "heading": "Education",
-            "educationList": [
-              {
-                "title": "High School",
-                "date": "2019 - 2020",
-                "location": "Al Azzouzia High School"
-              },
-              {
-                "title": "Preparatory Cycle",
-                "date": "2020 - 2022",
-                "location": "Ensa Marrakech"
-              },
-              {
-                "title": "Engineering Cycle",
-                "date": "2022 - 2023",
-                "location": "Ensa Marrakech"
-              }
-            ]
-          }
-        },
-        "colTwo": {
-          "lightDarkModeCard": {
-            "iconAlt": "Light/Dark Mode"
-          },
-          "languageToggleCard": {
-            "button": "Fr"
-          },
-          "buttonIcon": {
-            "altText": "Button Icon"
-          }
-        },
-        "colThree": {
-          "flowerCard": {
-            "flowerIconAlt": "Flower Icon"
-          }
-        },
-        "colFour": {
-          "socialIcons": {
-            "emailIcon": "Email Icon",
-            "email": "@",
-            "twitterIcon": "Twitter Icon",
-            "linkedinIcon": "LinkedIn Icon",
-            "githubIcon": "GitHub Icon"
-          }
-        }
+    "cloud": {
+      "nav": {
+          "openVpn": "OpenVPN Server on AWS",
+          "pipeline": "Pipeline Deployement on Azure",
+          "fiveG": "Virtualized 5G Network Deployment on Azure"
+      },
+      "openVPN": {
+          "title": "OpenVPN Server on AWS",
+          "description": "In this project, we configured and deployed an <strong>OpenVPN server</strong> on AWS, leveraging the <strong>scalability</strong> and <strong>security features</strong> of the cloud. We used <strong>Amazon EC2</strong> to host the VPN server, ensuring a flexible and reliable infrastructure. An <strong>Elastic IP</strong> from AWS was utilized to provide a static public address, allowing constant access to the VPN. <strong>Security Groups</strong> were configured to control incoming and outgoing traffic, ensuring that only the necessary ports (like 1194 for OpenVPN) were accessible. The cloud-based configuration allowed for <strong>scalability</strong>, <strong>monitoring</strong>, and easy <strong>management of the VPN infrastructure</strong>, providing secure remote access to our network."
+          ,
+          "tools": "AWS (EC2) - OpenVPN - SSH - Linux - AWS (CLI)"
+      },
+      "pipeline": {
+          "title": "Azure DevOps Pipeline for ASP.NET Deployment on Azure",
+          "description": "As part of an academic group project, we set up a <strong>CI/CD pipeline</strong> using Azure DevOps to automate the build and deployment of an <strong>ASP.NET web application</strong> on Azure App Service. The process involved configuring the build pipeline to compile the application, run tests, and generate build artifacts. Subsequently, a <strong>deployment pipeline</strong> was established to automatically deploy the built application to <strong>Azure App Service</strong>, ensuring <strong>seamless updates</strong> with each commit to the repository. The cloud integration enabled <strong>scalability</strong>, <strong>continuous deployment</strong>, and <strong>streamlined management</strong> through Azure's infrastructure."
+          ,
+          "tools": "Azure (DevOps) - Azure (App Service) - ASP.NET - Git - Azure Repos"
+      },
+      "Fiveg": {
+          "title": "Virtualized 5G Network Deployment on Azure",
+          "description": "This project focuses on deploying a <strong>virtualized 5G network</strong> on a cloud platform, using <strong>Microsoft Azure</strong> to host the key components of the network. The goal is to simulate a complete 5G architecture, where the core network functions <strong>(CN)</strong>, including Access and Mobility Management Function <strong>(AMF)</strong>, Session Management Function <strong>(SMF)</strong>, and User Plane Function <strong>(UPF)</strong>, are implemented using <strong>Open5GS</strong>. The Radio Access Network <strong>(RAN)</strong> is simulated with <strong>srsRAN</strong>. The entire architecture is hosted on <strong>Azure virtual machines</strong>, using Azure networking solutions like Azure Virtual Network <strong>(VNet)</strong> for internal communication between components. This setup allows for testing and demonstrating a 5G network in a cloud environment, highlighting the <strong>flexibility</strong> and <strong>scalability</strong> of cloud-based infrastructure."
+          ,
+          "tools": "Azure - Open5GS - srsRAN - Docker - Azure Virtual Network (VNet) - Ubuntu VMs"
+      }
+    },
+    "network": {
+      "nav": {
+        "Fiveg": "Virtualized 5G Network Deployment on Azure",
+        "openVPN": "OpenVPN Server on AWS",
+        "ids": "Intrusion Detection System using ML and Zeek",
+        "Fourg": "4G Network Simulation in Atoll"
+      },
+      "Fiveg": "Virtualized 5G Network Deployment on Azure",
+      "FivegDescription": "This project involves building a virtualized <strong>5G network architecture</strong> by deploying <strong>core network (CN)</strong> and <strong>Radio Access Network (RAN)</strong> components in <strong>Azure cloud environment</strong>. The <strong>core network functions</strong>, such as <strong>mobility</strong> and <strong>session management</strong>, are implemented using <strong>Open5GS</strong>, while the <strong>RAN</strong> is simulated using <strong>srsRAN</strong>. These components are hosted on <strong>virtual machines (VMs)</strong>, with <strong>cloud networking solutions</strong> facilitating their interaction. The primary focus is on demonstrating the <strong>flexibility</strong>, <strong>scalability</strong>, and <strong>efficiency</strong> of using <strong>cloud-based infrastructure</strong> to simulate a complete <strong>5G network</strong>, allowing for easy deployment and management of network components.",
+      "toolsFiveg": "Azure - Open5GS - srsRAN - Docker - Azure Virtual Network (VNet) - Ubuntu VMs",
+      "openVPN": "OpenVpn Server on AWS",
+      "openVPNDescription": "This project involved configuring and deploying an <strong>OpenVPN server</strong> on <strong>AWS</strong> to facilitate <strong>secure remote access</strong> to a network. The setup utilized various <strong>AWS services</strong> to ensure <strong>scalability</strong>, <strong>reliability</strong>, and <strong>security</strong>. By leveraging the <strong>cloud infrastructure</strong>, the project aimed to provide a robust <strong>VPN solution</strong>, allowing users to securely connect to resources over the internet while maintaining <strong>data confidentiality</strong>.",
+      "toolsOpenVPN": "AWS (EC2) - OpenVPN - SSH - Linux - AWS (CLI)",
+      "ids": "Intrusion Detection System Using Machine Learning and Zeek",
+      "idsDescription": "This academic group project focused on developing an <strong>Intrusion Detection System (IDS)</strong> utilizing <strong>machine learning techniques</strong> to enhance <strong>network security</strong>. The system was designed to analyze <strong>network traffic</strong> captured by <strong>Zeek</strong>, an open-source <strong>network security monitor</strong>, to identify <strong>anomalies</strong> and detect potential <strong>intrusions</strong> in real-time. An <strong>autoencoder</strong> was employed as the <strong>machine learning model</strong> due to its effectiveness in learning compressed representations of data, enabling the system to identify deviations from normal behavior efficiently. This approach aimed to improve the <strong>accuracy</strong> and <strong>efficiency</strong> of <strong>threat detection</strong>, providing organizations with a proactive method to safeguard their networks.",
+      "toolsIDS": "Python - Scikit-learn - Pandas - NumPy - TensorFlow - Zeek - Autoencoders",
+      "Fourg": "4G Network Simulation using Atoll",
+      "FourgDescription": "This project involves simulating a <strong>4G cellular network</strong> using <strong>Atoll</strong>, a well-known <strong>radio planning</strong> and <strong>optimization software</strong>. The goal of the simulation is to evaluate the network’s <strong>performance</strong>, optimize <strong>coverage</strong>, and analyze key metrics such as <strong>signal strength</strong>, <strong>interference levels</strong>, and <strong>capacity</strong>.",
+      "toolsFourg": "Atoll"
+    },
+    "small": {
+      "nav": {
+          "yesOrNo": "Yes Or No Wheel App",
+          "desktopCleaner": "Desktop Cleaner Automation Script",
+          "rockPaperScissors": "Rock Paper Scissors Game",
+          "memoryGame": "Memory Mobile Game",
+          "watermarkApp": "Watermark Python Application"
+      },
+      "yesOrNo": {
+          "title": "Yes or No Desktop Wheel App",
+          "description": "This project is a <strong>simple decision-making application</strong> built with <strong>Electron.js</strong>, allowing users to input <strong>customizable entries</strong> into a <strong>wheel</strong>. When spun, the app randomly selects either a '<strong>Yes</strong>' or '<strong>No</strong>' answer to help users with their decisions. The app features a <strong>user-friendly interface</strong> and <strong>customizable input options</strong> for flexibility.",
+          "tools": "<strong>Electron.js</strong> - <strong>HTML</strong> - <strong>CSS</strong> - <strong>JavaScript</strong>"
+      },
+      "desktopCleaner": {
+          "title": "Desktop Cleaner Automation Script",
+          "description": "This <strong>Python script</strong> automatically organizes your <strong>desktop</strong> by sorting files into <strong>categorized folders</strong> based on their extensions, such as <strong>images</strong>, <strong>videos</strong>, <strong>executables</strong>, and more. Files starting with <strong>_imp</strong> are moved to a dedicated '<strong>important</strong>' folder. If a file with the same name already exists in the <strong>destination folder</strong>, the script handles it by appending a <strong>unique identifier</strong> to avoid overwriting. It runs in the <strong>background</strong>, sending <strong>real-time notifications</strong> via <strong>Windows Toast</strong> when files are moved. Additionally, it is set to run at <strong>system startup</strong> through <strong>Task Scheduler</strong>, keeping your <strong>desktop</strong> tidy without manual intervention.",
+          "tools": "<strong>Python</strong> - <strong>Shutil</strong> - <strong>OS</strong> - <strong>Subprocess</strong> - <strong>win10</strong> - <strong>Toast</strong>"
+      },
+      "rockPaperScissors": {
+          "title": "Rock Paper Scissors Game",
+          "description": "<strong>JavaScript-Mini-Projects</strong> is a collection of basic projects aimed at helping beginners learn <strong>JavaScript</strong> and its <strong>associated technologies</strong>. I contributed to this repository by building the <strong>Rock Paper Scissors game</strong> and adding it to the <strong>project collection</strong>. It's a <strong>great project</strong> to demonstrate the use of <strong>JavaScript logic</strong> and <strong>DOM manipulation</strong>.",
+          "tools": "<strong>HTML</strong> - <strong>CSS</strong> - <strong>JavaScript</strong>"
+      },
+      "memoryGame": {
+          "title": "Memory Mobile Game",
+          "description": "This is a <strong>Memory Game</strong> developed using <strong>Android Studio</strong> with <strong>Kotlin</strong>. The game involves a <strong>simple grid</strong> of blocks where a player is shown a <strong>pattern of highlighted blocks</strong> for a brief moment. The player is then required to <strong>memorize the pattern</strong> and reproduce it by tapping the <strong>correct blocks</strong>. As the game progresses, the <strong>complexity increases</strong> as the highlighted pattern becomes longer, challenging the player’s <strong>memory</strong>.",
+          "tools": "<strong>Android Studio</strong> - <strong>Kotlin</strong>"
+      },
+      "watermarkApp": {
+          "title": "Watermark Python Application",
+          "description": "<strong>Watermark Application</strong> is a <strong>simple Python application</strong> built with <strong>Tkinter</strong> to add <strong>watermarks</strong> to <strong>images</strong>. Users can drag and drop <strong>images</strong> into the application, browse for <strong>images</strong> and <strong>watermarks</strong>, customize the <strong>watermark position</strong> (top left, top right, bottom left, bottom right), adjust the <strong>watermark size</strong>, and download the <strong>watermarked images</strong>.",
+          "tools": "<strong>Python</strong> - <strong>Tkinter</strong> - <strong>Pillow</strong> - <strong>OS</strong>"
+      }
+    },
+    "other": {
+      "iotProject": {
+          "title": "Modeling and Detection of Connected Objects in a Smart Building",
+          "description": "This project focuses on the <strong>modeling</strong> and <strong>detection of connected objects</strong> (such as sensors, cameras, thermostats) within a <strong>smart building</strong> using IoT-based simulations and scenarios. The goal is to design a system that models these devices' interactions, allowing for <strong>automatic</strong> and <strong>efficient</strong> detection, enhancing the building's <strong>management</strong> and <strong>energy efficiency</strong>. Key functionalities include <strong>modeling connected objects</strong>, <strong>automatic detection</strong> of IoT devices, <strong>IoT scenario creation</strong>, <strong>Python programming</strong> for data management, and <strong>performance analysis</strong> to improve energy consumption and security.<br/>⁕ this project is still in progress.",
+          "tools": "Cisco Packet Tracer - Python - IoT - Scenario Creation"
+      },
+      "linuxServer": {
+          "title": "Implementation of a Linux Server Infrastructure for IT Room Management",
+          "description": "This project focuses on the development of a <strong>robust infrastructure</strong> for managing an <strong>IT room</strong>, addressing key requirements such as <strong>automated IP address allocation</strong>, <strong>real-time machine monitoring</strong>, and <strong>centralized shared storage</strong>. The project leverages several critical technologies, including a <strong>DHCP server</strong> for <strong>dynamic IP assignment</strong>, a <strong>TrueNAS storage server</strong> for <strong>secure data management</strong>, and <strong>Zabbix</strong> for <strong>comprehensive monitoring</strong> of system health.",
+          "tools": "Linux - DHCP - Zabbix - TrueNAS"
       }
     }
+  },
+  "contactPage": {
+    "leaveMessage": "Leave a message",
+    "subject": "Subject",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "sendMessage": "Send Message",
+    "orGetInTouch": "Or, get in touch with me on",
+    "messageSuccess": "Your message has been sent, thank you for contacting me!",
+    "messageError": "There was an error sending your message. Please try again later."
   }
-  
+}

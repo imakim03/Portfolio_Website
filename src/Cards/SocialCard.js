@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const SocialMediaCards = ({ cursorEnterSocialsCard, cursorLeaveSocialsCard }) => {
@@ -21,7 +20,7 @@ const SocialMediaCards = ({ cursorEnterSocialsCard, cursorLeaveSocialsCard }) =>
             href='https://x.com/huhu19hu' 
             target='_blank' 
             className='socialCard twitterIcon icon'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="4vw" height="4vw" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30%" height="30%" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round">
               <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.28-.03-.56-.08-.83A7.72 7.72 0 0023 3z"/>
             </svg>
           </motion.a>
@@ -35,7 +34,7 @@ const SocialMediaCards = ({ cursorEnterSocialsCard, cursorLeaveSocialsCard }) =>
             href='https://linkedin.com/in/kimissi-imane-7b1aa624a/' 
             target='_blank' 
             className='socialCard linkedinIcon icon'>
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="4vw" height="4vw">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="30%" height="30%">
               <circle cx="4" cy="4" r="2" stroke="#ffffff" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round" />
               <rect x="2" y="9" width="4" height="13" stroke="#ffffff" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M10 22H14V15C14 13.8954 14.8954 13 16 13C17.1046 13 18 13.8954 18 15V22H22V15C22 11.6863 19.3137 9 16 9C12.6863 9 10 11.6863 10 15V22Z" stroke="#ffffff" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round" />
@@ -50,8 +49,8 @@ const SocialMediaCards = ({ cursorEnterSocialsCard, cursorLeaveSocialsCard }) =>
             className='socialCard githubIcon icon'>
             <svg 
                   fill="#ffffff" 
-                  width="5vw" 
-                  height="5vw" 
+                  width="40%" 
+                  height="40%" 
                   viewBox="-6 0 32 32" 
                   version="1.1" 
                   xmlns="http://www.w3.org/2000/svg"

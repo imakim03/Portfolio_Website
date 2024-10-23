@@ -1,0 +1,371 @@
+.aboutMeContainer {
+    height: 100vh;
+    height: 100svh;
+    background-color: var(--background-color);
+    font-family: var(--main-font);
+    cursor: none;
+    scroll-behavior: auto;
+}
+
+.MainContentContainer {
+    padding: 5em 5em 5em 5em;
+    height: calc(100% - 50px);
+}
+
+.MainContent {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 2%;
+    border: dashed 2px var(--font-color);
+    border-radius: var(--base-space);
+}
+
+.nextButton {
+    position: absolute;
+    background-color: var(--primary-accent-color);
+    font-size: var(--fs-xs);
+    width: 200px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    color: var(--font-color);
+    display: flex;
+    justify-content: center;
+    transition: all 0.5s ease;
+    align-items: center;
+}
+
+.scrollableContent section:last-child {
+    position: relative;
+}
+
+.nextButton svg {
+    transition: transform 0.3s ease;
+    width: 25px;
+    height: 25px;
+    stroke: var(--font-color)
+}
+
+.nextButton:hover svg {
+    transform: translateX(5px);
+}
+
+.nextButton:hover {
+    transform: translate(2px,2px);
+    box-shadow: none;
+}
+
+.nextButton::after {
+    height: 85%;
+    width: 92%;
+    left: 3%;
+}
+
+.PFEIntenship {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.dot {
+    position: relative;
+    height: 5px;
+    width: 5px;
+    background-color: green;
+    border-radius: 50%;
+    animation: pulsate 2s infinite;
+}
+
+.dot::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 10px;
+    width: 10px;
+    background-color: rgba(0, 255, 0, 0.41);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulsateGlow 2s infinite;
+}
+
+@keyframes pulsate {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes pulsateGlow {
+    0%, 100% {
+        opacity: 0; 
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+#education {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5em;
+}
+
+.educationSectionItem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1em;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.educationSectionItem span {
+    font-size: var(--fs-m);
+    transition: all 0.3s ease;
+}
+
+.educationSectionItem svg {
+    width: 30px;
+    height: 30px;
+}
+
+.description {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+}
+
+.description h4, .description p {
+    margin: 0;
+    font-size: var(--fs-s);
+}
+
+.description li {
+    font-size: var(--fs-s);
+}
+
+.moreDetails {
+    padding-top: 10px;
+    max-height: 0; 
+    overflow: hidden; 
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+
+.MainContentContainer p {
+    font-size: var(--fs-xs);
+}
+
+.moreDetails.active {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.educationDescription > li::marker {
+    content: '⁘ ';
+}
+
+.sperator {
+    width: 100%;
+    border: dashed 1.5px var(--font-color);
+}
+
+
+.skillContainer {
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 5px;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    position: relative;
+    transition: opacity 0.3s ease;
+}
+
+.skillImage {
+    width: auto;
+    height: 30px;
+}
+
+.skillTooltip {
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.3s, opacity 0.3s ease;
+    white-space: nowrap;
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.skillTooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+.skillContainer:hover .skillTooltip {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.skillImages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.skillContainer:hover {
+    opacity: 1;
+}
+
+
+#experience {
+    font-size: var(--fs-xs);
+}
+
+#experience h3, #experience p {
+    margin: 0;
+}
+
+.experienceDetails {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: var(--fs-xs);
+}
+
+.experienceDetails svg {
+    width: 15px;
+    height: auto;
+}
+
+.scroll-arrow {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--font-color);
+    cursor: pointer;
+    animation: bounce 1s infinite;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+  
+  .scroll-arrow.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+
+@media only screen and (max-width: 600px) {
+    .MainContentContainer {
+        padding: 1em 1em 1em 1em;
+    }
+    .skillImage {
+        width: auto;
+        height: 20px;
+    }
+    .skillImages {
+        gap: .5em;
+    }
+    .nextButton {
+        font-size: 8pt;
+        width: 120px;
+        height: 40px;
+    }
+    .educationSectionItem svg {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .MainContentContainer {
+        padding: 2em 2em 2em 2em;
+    }
+    .skillImage {
+        width: auto;
+        height: 28px;
+    }
+    .skillImages {
+        gap: .5em;
+    }
+    .educationSectionItem svg {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .MainContentContainer {
+        padding: 3em 3em 3em 3em;
+    }
+    .skillImage {
+        width: auto;
+        height: 30px;
+    }
+    .skillImages {
+        gap: 1em;
+    }
+    .nextButton {
+        font-size: var(--fs-xs);
+        width: 200px;
+        height: 50px;
+    }
+    .educationSectionItem svg {
+        width: 30px;
+        height: 30px;
+    }
+    .educationSectionItem svg {
+        display: inline;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .MainContentContainer {
+        padding: 5em 5em 5em 5em;
+    }
+    .nextButton {
+        font-size: var(--fs-xs);
+        width: 200px;
+        height: 50px;
+    }
+    #scrollArrow {
+        display: none;
+    }
+}

@@ -1,112 +1,148 @@
-import NavBar from '../components/NavBar';
-import Cursor from '../components/Cursor';
-import ScrollToTopButton from '../components/scrollToTopButton';
-import Footer from '../components/Footer';
+import React, { useState } from 'react';
+import WebDevProjects from '../Components/WebDevProjects';
+import CloudProjects from '../Components/CloudProjects';
+import NetwrokProjects from '../Components/NetworkProjects';
+import SmallProjects from '../Components/SmallProjects';
+import OtherProjects from '../Components/OtherProjects';
+import Cursor from '../Components/Cursor';
+import NavBar from '../Components/NavBar';
+import ScrollToTopButton from '../Components/scrollToTopButton';
+import { useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { useCustomCursor } from '../Hooks/useCustomCursor';
-import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import BlogWebsite1 from '../Images/blog1.png';
-import BlogWebsite2 from '../Images/blog2.png';
-import BlogWebsite3 from '../Images/blog3.png';
-import Portfolio1 from '../Images/portfolio1.png';
-import Portfolio2 from '../Images/portfolio2.png';
-import Portfolio3 from '../Images/portfolio3.png';
-import ocpProject1 from '../Images/ocpProject1.png';
-import ocpProject2 from '../Images/ocpProject2.png';
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css'; 
-import '../ProjectsPage.css';
-import '../App.css';
-
-const blogImages = [BlogWebsite1, BlogWebsite2, BlogWebsite3];
-const portfolioImages = [Portfolio1, Portfolio3];
-const ocpProjectImages = [ocpProject1, ocpProject2];
+import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import Transition from '../Components/Transition';
+import '../Style/ProjectsPage.css';
+import '../Style/SideBarMenu.css';
+import Footer from '../Components/Footer';
 
 const Projects = () => {
-    const [activeSection, setActiveSection] = useState('blogWebsite');
-    const [isOpen, setIsOpen] = useState(false);
-    const [blogPhotoIndex, setBlogPhotoIndex] = useState(0);
-    const [isPortfolioOpen, setIsPortfolioOpen] = useState(false);
-    const [portfolioPhotoIndex, setPortfolioPhotoIndex] = useState(0);
-    const [isOcpOpen, setIsOcpOpen] = useState(false);
-    const [ocpIndex, setOcpIndex] = useState(0);
-
-    const style = document.createElement('style');
-
-    const blogWebsiteRef = useRef(null);
-    const portfolioWebsiteRef = useRef(null);
-    const ocpProjectRef = useRef(null);
-
-    const sections = [
-        { id: 'blogWebsite', label: 'Blog Website', ref: blogWebsiteRef },
-        { id: 'portfolioWebsite', label: 'Portfolio Website', ref: portfolioWebsiteRef },
-        { id: 'ocpProject', label: 'Web Application for Drilling Machine Informations', ref: ocpProjectRef }
-    ];
-
     const { 
         isVisible,
-        cursorVarient,
         variants,
+        cursorVarient,
         cursorEnterCardHover,
         cursorLeaveCardHover,
         cursorEnterProjectsCard,
         cursorLeaveProjectsCard,
         cursorEnterSocialsCard,
         cursorLeaveSocialsCard
-    } = useCustomCursor([isOpen, isPortfolioOpen, isOcpOpen]);
+    } = useCustomCursor();
 
-    const scrollToSection = (sectionId) => {
-        const section = document.getElementById(sectionId);
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setActiveSection(sectionId);
+    const { t } = useTranslation();
+
+    const [hoveredIcon, setHoveredIcon] = useState(null);
+    const [title, setTitle] = useState('Projects • Web Development');
+
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const initialComponent = searchParams.get('domain') || 'webdev';
+    const webdevId = searchParams.get('webdevId') || null;
+    const cloudId = searchParams.get('cloudId') || null;
+    const networkId = searchParams.get('networkId') || null;
+    const smallId = searchParams.get('smallId') || null;
+    const otherId = searchParams.get('otherId') || null;
+    const [activeComponent, setActiveComponent] = useState(initialComponent);
+
+    useEffect(() => {
+        setActiveComponent(initialComponent);
+    }, [initialComponent]);
+
+    const handleMouseEnter = (iconName) => {
+        setHoveredIcon(iconName);
+        cursorEnterCardHover();
     };
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
-            },
-            { threshold: 0.5 }
-        );
+    const handleMouseLeave = () => {
+        setHoveredIcon(null);
+        cursorLeaveProjectsCard();
+    };
 
-        sections.forEach((section) => {
-            if (section.ref.current) {
-                observer.observe(section.ref.current);
-            }
-        });
-
-        return () => {
-            sections.forEach((section) => {
-                if (section.ref.current) {
-                    observer.unobserve(section.ref.current);
-                }
-            });
-        };
-    }, [sections]);
-
-    // Return to default cursor when the lightbox is open
-    useEffect(() => {
-        if (isPortfolioOpen || isOcpOpen || isOpen) {
-            style.innerHTML = '* { cursor: default; }';
-        } else {
-            style.innerHTML = '* { cursor: none; }';
+    const renderComponent = () => {
+        switch (activeComponent) {
+        case 'webdev':
+            return <WebDevProjects
+            cursorEnterSocialsCard = {cursorEnterSocialsCard}
+            cursorEnterCardHover = {cursorEnterCardHover}
+            cursorEnterProjectsCard = {cursorEnterProjectsCard}
+            cursorLeaveCardHover = {cursorLeaveCardHover}
+            cursorLeaveProjectsCard = {cursorLeaveProjectsCard}
+            cursorLeaveSocialsCard = {cursorLeaveSocialsCard}
+            webdevId = {webdevId}
+            />;
+        case 'cloud':
+            return <CloudProjects
+            cursorEnterCardHover = {cursorEnterCardHover}
+            cursorLeaveCardHover = {cursorLeaveCardHover}
+            cloudId = {cloudId}
+            />;
+        case 'network':
+            return <NetwrokProjects
+            cursorEnterCardHover = {cursorEnterCardHover}
+            cursorLeaveCardHover = {cursorLeaveCardHover}
+            networkId = {networkId}
+            />;
+        case 'small':
+            return <SmallProjects
+            cursorEnterSocialsCard = {cursorEnterSocialsCard}
+            cursorEnterCardHover = {cursorEnterCardHover}
+            cursorEnterProjectsCard = {cursorEnterProjectsCard}
+            cursorLeaveCardHover = {cursorLeaveCardHover}
+            cursorLeaveProjectsCard = {cursorLeaveProjectsCard}
+            cursorLeaveSocialsCard = {cursorLeaveSocialsCard}
+            smallId = {smallId}
+            />
+        case 'other':
+            return <OtherProjects
+            cursorEnterCardHover = {cursorEnterCardHover}
+            cursorLeaveCardHover = {cursorLeaveCardHover}
+            otherId = {otherId}
+            />
+        default:
+            return <WebDevProjects
+            cursorEnterSocialsCard = {cursorEnterSocialsCard}
+            cursorEnterCardHover = {cursorEnterCardHover}
+            cursorEnterProjectsCard = {cursorEnterProjectsCard}
+            cursorLeaveCardHover = {cursorLeaveCardHover}
+            cursorLeaveProjectsCard = {cursorLeaveProjectsCard}
+            cursorLeaveSocialsCard = {cursorLeaveSocialsCard}
+            webdevId = {webdevId}
+            />;
         }
-        document.head.appendChild(style);
-        
-    }, [isPortfolioOpen, isOcpOpen, isOpen]);
+    };
+    
+    useEffect(() => {
+        switch (activeComponent) {
+            case 'webdev':
+              setTitle(t('projectsPage.projects.webdev'));
+              break;
+            case 'cloud':
+              setTitle(t('projectsPage.projects.cloud'));
+              break;
+            case 'network':
+              setTitle(t('projectsPage.projects.network'));
+              break;
+            case 'small':
+              setTitle(t('projectsPage.projects.small'));
+              break;
+            case 'other':
+              setTitle(t('projectsPage.projects.other'));
+              break;
+            default:
+              setTitle(t('projectsPage.projects.other'));
+        }
+    }, [activeComponent]);
 
-    return (
-        <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="projectsPageContainer pageContainer"
-        >
-            <Cursor
+  return (
+    <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="projectsPageContainer pageContainer"
+    >
+        <Cursor
                 style={{ display: isVisible ? 'block' : 'none' }}
                 variants={variants}
                 cursorVarient={cursorVarient}
@@ -119,417 +155,107 @@ const Projects = () => {
                 cursorEnterCardHover={cursorEnterCardHover}
                 cursorLeaveCardHover={cursorLeaveCardHover}
             />
-            <div className='MainProjectsContent'>
-                <section id='WebDevProjects'>
-                    <h1 className='projectDomain'>Web Devoloppement Projects</h1>
-                    <div className='sectionContent'>
-                        <div className='sidebarMenu sideBarProjects'>
-                        <ul>
-                            {sections.map(section => (
-                                <motion.li
-                                    onMouseEnter={cursorEnterCardHover}
-                                    onMouseLeave={cursorLeaveCardHover}
-                                    key={section.id}
-                                    onClick={() => scrollToSection(section.id)}
-                                    className={activeSection === section.id ? 'activeSection' : ''}
-                                >
-                                    {section.label}
-                                </motion.li>
-                            ))}
-                        </ul>
-                        </div>
-                        <div className='scrollableContent'>
-                            {/* Blog Website Section */}
-                            <section id="blogWebsite" ref={blogWebsiteRef}>
-                                <div className="sousSection blogWebsite">
-                                    <a
-                                        href="https://github.com/imakim03/BlogProject"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className='projectTitle'
-                                        onMouseEnter={cursorEnterSocialsCard}
-                                        onMouseLeave={cursorLeaveSocialsCard}
-                                    >
-                                        <h2>Blog Website</h2>
-                                        <svg 
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className='projectIcon linkIcon'
-                                        >
-                                            <path d="M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5" strokeWidth="3" strokeLinecap="round" />
-                                        </svg>
-                                    </a>
-                                    <p>
-                                        This project is a blog website built with Flask and Bootstrap. It allows users to register, log in, and post or comment on blogs. Admins can manage the posts by creating, editing, and deleting them. The main features include user authentication and a commenting system. The code integrates Flask for backend management and Bootstrap for the front-end UI.
-                                    </p>
-                                    <div id="Tools">
-                                        <svg 
-                                            className='ToolsIcon projectIcon'
-                                            viewBox="0 0 48 48" 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M36.2,26.4a1.8,1.8,0,0,0,1.4.6,2,2,0,0,0,1.4-.6L45.4,20a1.9,1.9,0,0,0,0-2.8l-3-3.1A3.7,3.7,0,0,0,43,12a4,4,0,0,0-4-4,3.7,3.7,0,0,0-2.1.6l-3.1-3a1.9,1.9,0,0,0-2.8,0L24.6,12a1.9,1.9,0,0,0,0,2.8L29,19.2l-5,5-5.4-5.4A8.7,8.7,0,0,0,20,14a9,9,0,0,0-9-9,2,2,0,0,0,0,4,5,5,0,1,1-5,5,2,2,0,0,0-4,0,9,9,0,0,0,9,9,8.7,8.7,0,0,0,4.8-1.4L21.2,27,8.6,39.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0L24,29.8,36.6,42.4a1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8L26.8,27l5-5Zm-7.4-13,3.6-3.6,8.8,8.8-3.6,3.6Z"></path>
-                                        </svg>
-                                        Flask - SQLite - Bootstrap - Flask-WTF
-                                    </div>
-                                    <div className='images'>
-                                        {blogImages.map((img, index) => (
-                                            <motion.img
-                                                key={index}
-                                                src={img}
-                                                alt={`BlogWebsiteImage${index + 1}`}
-                                                onMouseEnter={cursorEnterProjectsCard}
-                                                onMouseLeave={cursorLeaveProjectsCard}
-                                                onClick={() => {
-                                                    setBlogPhotoIndex(index);
-                                                    setIsOpen(true);
-                                                }}
-                                            />
-                                        ))}
-                                        {isOpen && (
-                                            <Lightbox
-                                                mainSrc={blogImages[blogPhotoIndex]}
-                                                nextSrc={blogImages[(blogPhotoIndex + 1) % blogImages.length]}
-                                                prevSrc={blogImages[(blogPhotoIndex + blogImages.length - 1) % blogImages.length]}
-                                                onCloseRequest={() => setIsOpen(false)}
-                                                onMovePrevRequest={() =>
-                                                    setBlogPhotoIndex((blogPhotoIndex + blogImages.length - 1) % blogImages.length)
-                                                }
-                                                onMoveNextRequest={() =>
-                                                    setBlogPhotoIndex((blogPhotoIndex + 1) % blogImages.length)
-                                                }
-                                            />
-                                        )}
-                                    </div>
-                                </div>
-                            </section>
-
-                            {/* Portfolio Website Section */}
-                            <section id="portfolioWebsite" ref={portfolioWebsiteRef}>
-                                <div className="sousSection portfolioWebsite">
-                                    <a
-                                        href="https://github.com/imakim03/PortfolioWebsite"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className='projectTitle'
-                                        onMouseEnter={cursorEnterSocialsCard}
-                                        onMouseLeave={cursorLeaveSocialsCard}
-                                    >
-                                        <h2>Portfolio Website</h2>
-                                        <svg 
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className='projectIcon linkIcon'
-                                        >
-                                            <path d="M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5" strokeWidth="3" strokeLinecap="round" />
-                                        </svg>
-                                    </a>
-                                    <p>
-                                    This is my old portfolio website, hosted on GitHub, serves as a personal showcase of my projects and skills. The site is designed to present my work in an aesthetically pleasing and user-friendly manner.                            </p>
-                                    <div id="Tools">
-                                        <svg 
-                                            className='ToolsIcon projectIcon'
-                                            viewBox="0 0 48 48" 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M36.2,26.4a1.8,1.8,0,0,0,1.4.6,2,2,0,0,0,1.4-.6L45.4,20a1.9,1.9,0,0,0,0-2.8l-3-3.1A3.7,3.7,0,0,0,43,12a4,4,0,0,0-4-4,3.7,3.7,0,0,0-2.1.6l-3.1-3a1.9,1.9,0,0,0-2.8,0L24.6,12a1.9,1.9,0,0,0,0,2.8L29,19.2l-5,5-5.4-5.4A8.7,8.7,0,0,0,20,14a9,9,0,0,0-9-9,2,2,0,0,0,0,4,5,5,0,1,1-5,5,2,2,0,0,0-4,0,9,9,0,0,0,9,9,8.7,8.7,0,0,0,4.8-1.4L21.2,27,8.6,39.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0L24,29.8,36.6,42.4a1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8L26.8,27l5-5Zm-7.4-13,3.6-3.6,8.8,8.8-3.6,3.6Z"></path>
-                                        </svg>
-                                        HTML - CSS - JavaScript
-                                    </div>
-                                    <div className='images'>
-                                        {portfolioImages.map((img, index) => (
-                                            <motion.img
-                                                key={index}
-                                                src={img}
-                                                alt={`PortfolioImage${index + 1}`}
-                                                onMouseEnter={cursorEnterProjectsCard}
-                                                onMouseLeave={cursorLeaveProjectsCard}
-                                                onClick={() => {
-                                                    setPortfolioPhotoIndex(index);
-                                                    setIsPortfolioOpen(true);
-                                                    style.innerHTML = '* { cursor: default; }';
-                                                    document.head.appendChild(style);
-                                                }}
-                                            />
-                                        ))}
-                                        {isPortfolioOpen && (
-                                            <Lightbox
-                                                mainSrc={portfolioImages[portfolioPhotoIndex]}
-                                                nextSrc={portfolioImages[(portfolioPhotoIndex + 1) % portfolioImages.length]}
-                                                prevSrc={portfolioImages[(portfolioPhotoIndex + portfolioImages.length - 1) % portfolioImages.length]}
-                                                onCloseRequest={() => setIsPortfolioOpen(false)}
-                                                onMovePrevRequest={() =>
-                                                    setPortfolioPhotoIndex((portfolioPhotoIndex + portfolioImages.length - 1) % portfolioImages.length)
-                                                }
-                                                onMoveNextRequest={() =>
-                                                    setPortfolioPhotoIndex((portfolioPhotoIndex + 1) % portfolioImages.length)
-                                                }
-                                            />
-                                        )}
-                                    </div>
-                                </div>
-                            </section>
-
-                            {/* OCP Project Section */}
-                            <section id="ocpProject" ref={ocpProjectRef}>
-                                <div className="sousSection ocpProject">
-                                    <div className='projectTitle'>
-                                        <h2>Web Application for Drilling Machine Informations</h2>
-                                    </div>
-                                    <p>
-                                        For my end-of-year project, I developed a web application that features a user-friendly graphical user interface (GUI) using React. This interface enables users to easily enter and manage drilling machine data. On the backend, I utilized Laravel to create a robust database management system, ensuring seamless data storage and retrieval.                         
-                                    </p>
-                                    <div id="Tools">
-                                        <svg 
-                                            className='ToolsIcon projectIcon'
-                                            viewBox="0 0 48 48" 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M36.2,26.4a1.8,1.8,0,0,0,1.4.6,2,2,0,0,0,1.4-.6L45.4,20a1.9,1.9,0,0,0,0-2.8l-3-3.1A3.7,3.7,0,0,0,43,12a4,4,0,0,0-4-4,3.7,3.7,0,0,0-2.1.6l-3.1-3a1.9,1.9,0,0,0-2.8,0L24.6,12a1.9,1.9,0,0,0,0,2.8L29,19.2l-5,5-5.4-5.4A8.7,8.7,0,0,0,20,14a9,9,0,0,0-9-9,2,2,0,0,0,0,4,5,5,0,1,1-5,5,2,2,0,0,0-4,0,9,9,0,0,0,9,9,8.7,8.7,0,0,0,4.8-1.4L21.2,27,8.6,39.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0L24,29.8,36.6,42.4a1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8L26.8,27l5-5Zm-7.4-13,3.6-3.6,8.8,8.8-3.6,3.6Z"></path>
-                                        </svg>
-                                        Laravel - React.js
-                                    </div>
-                                    <div className='images'>
-                                        {ocpProjectImages.map((img, index) => (
-                                            <motion.img
-                                                key={index}
-                                                src={img}
-                                                alt={`OCPImage${index + 1}`}
-                                                onMouseEnter={cursorEnterProjectsCard}
-                                                onMouseLeave={cursorLeaveProjectsCard}
-                                                onClick={() => {
-                                                    setOcpIndex(index);
-                                                    setIsOcpOpen(true);
-                                                }}
-                                            />
-                                        ))}
-                                        {isOcpOpen && (
-                                            <Lightbox
-                                                mainSrc={ocpProjectImages[ocpIndex]}
-                                                nextSrc={ocpProjectImages[(ocpIndex + 1) % ocpProjectImages.length]}
-                                                prevSrc={ocpProjectImages[(ocpIndex + ocpProjectImages.length - 1) % ocpProjectImages.length]}
-                                                onCloseRequest={() => setIsOcpOpen(false)}
-                                                onMovePrevRequest={() =>
-                                                    setOcpIndex((ocpIndex + ocpProjectImages.length - 1) % ocpProjectImages.length)
-                                                }
-                                                onMoveNextRequest={() =>
-                                                    setOcpIndex((ocpIndex + 1) % ocpProjectImages.length)
-                                                }
-                                            />
-                                        )}
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </section>
-
-                <section id='cloudProjects'>
-                    <h1 className='card projectDomain'>Cloud Projects</h1>
-                    <div className='sectionContent'>
-                        {/* <div className='sidebarMenu sideBarProjects'>
-                        <ul>
-                            {sections.map(section => (
-                                <motion.li
-                                    onMouseEnter={cursorEnterCardHover}
-                                    onMouseLeave={cursorLeaveCardHover}
-                                    key={section.id}
-                                    onClick={() => scrollToSection(section.id)}
-                                    className={activeSection === section.id ? 'activeSection' : ''}
-                                >
-                                    {section.label}
-                                </motion.li>
-                            ))}
-                        </ul>
-                        </div> */}
-                        <div className='scrollableContent'>
-                            {/* Blog Website Section */}
-                            <section id="blogWebsite" ref={blogWebsiteRef}>
-                                <div className="sousSection blogWebsite">
-                                    <a
-                                        href="https://github.com/imakim03/BlogProject"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className='projectTitle'
-                                        onMouseEnter={cursorEnterSocialsCard}
-                                        onMouseLeave={cursorLeaveSocialsCard}
-                                    >
-                                        <h2>Blog Website</h2>
-                                        <svg 
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className='projectIcon linkIcon'
-                                        >
-                                            <path d="M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5" strokeWidth="3" strokeLinecap="round" />
-                                        </svg>
-                                    </a>
-                                    <p>
-                                        This project is a blog website built with Flask and Bootstrap. It allows users to register, log in, and post or comment on blogs. Admins can manage the posts by creating, editing, and deleting them. The main features include user authentication and a commenting system. The code integrates Flask for backend management and Bootstrap for the front-end UI.
-                                    </p>
-                                    <div id="Tools">
-                                        <svg 
-                                            className='ToolsIcon projectIcon'
-                                            viewBox="0 0 48 48" 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M36.2,26.4a1.8,1.8,0,0,0,1.4.6,2,2,0,0,0,1.4-.6L45.4,20a1.9,1.9,0,0,0,0-2.8l-3-3.1A3.7,3.7,0,0,0,43,12a4,4,0,0,0-4-4,3.7,3.7,0,0,0-2.1.6l-3.1-3a1.9,1.9,0,0,0-2.8,0L24.6,12a1.9,1.9,0,0,0,0,2.8L29,19.2l-5,5-5.4-5.4A8.7,8.7,0,0,0,20,14a9,9,0,0,0-9-9,2,2,0,0,0,0,4,5,5,0,1,1-5,5,2,2,0,0,0-4,0,9,9,0,0,0,9,9,8.7,8.7,0,0,0,4.8-1.4L21.2,27,8.6,39.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0L24,29.8,36.6,42.4a1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8L26.8,27l5-5Zm-7.4-13,3.6-3.6,8.8,8.8-3.6,3.6Z"></path>
-                                        </svg>
-                                        Flask - SQLite - Bootstrap - Flask-WTF
-                                    </div>
-                                    <div className='images'>
-                                        {blogImages.map((img, index) => (
-                                            <motion.img
-                                                key={index}
-                                                src={img}
-                                                alt={`BlogWebsiteImage${index + 1}`}
-                                                onMouseEnter={cursorEnterProjectsCard}
-                                                onMouseLeave={cursorLeaveProjectsCard}
-                                                onClick={() => {
-                                                    setBlogPhotoIndex(index);
-                                                    setIsOpen(true);
-                                                }}
-                                            />
-                                        ))}
-                                        {isOpen && (
-                                            <Lightbox
-                                                mainSrc={blogImages[blogPhotoIndex]}
-                                                nextSrc={blogImages[(blogPhotoIndex + 1) % blogImages.length]}
-                                                prevSrc={blogImages[(blogPhotoIndex + blogImages.length - 1) % blogImages.length]}
-                                                onCloseRequest={() => setIsOpen(false)}
-                                                onMovePrevRequest={() =>
-                                                    setBlogPhotoIndex((blogPhotoIndex + blogImages.length - 1) % blogImages.length)
-                                                }
-                                                onMoveNextRequest={() =>
-                                                    setBlogPhotoIndex((blogPhotoIndex + 1) % blogImages.length)
-                                                }
-                                            />
-                                        )}
-                                    </div>
-                                </div>
-                            </section>
-
-                            {/* Portfolio Website Section */}
-                            <section id="portfolioWebsite" ref={portfolioWebsiteRef}>
-                                <div className="sousSection portfolioWebsite">
-                                    <a
-                                        href="https://github.com/imakim03/PortfolioWebsite"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className='projectTitle'
-                                        onMouseEnter={cursorEnterSocialsCard}
-                                        onMouseLeave={cursorLeaveSocialsCard}
-                                    >
-                                        <h2>Portfolio Website</h2>
-                                        <svg 
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className='projectIcon linkIcon'
-                                        >
-                                            <path d="M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5" strokeWidth="3" strokeLinecap="round" />
-                                        </svg>
-                                    </a>
-                                    <p>
-                                    This is my old portfolio website, hosted on GitHub, serves as a personal showcase of my projects and skills. The site is designed to present my work in an aesthetically pleasing and user-friendly manner.                            </p>
-                                    <div id="Tools">
-                                        <svg 
-                                            className='ToolsIcon projectIcon'
-                                            viewBox="0 0 48 48" 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M36.2,26.4a1.8,1.8,0,0,0,1.4.6,2,2,0,0,0,1.4-.6L45.4,20a1.9,1.9,0,0,0,0-2.8l-3-3.1A3.7,3.7,0,0,0,43,12a4,4,0,0,0-4-4,3.7,3.7,0,0,0-2.1.6l-3.1-3a1.9,1.9,0,0,0-2.8,0L24.6,12a1.9,1.9,0,0,0,0,2.8L29,19.2l-5,5-5.4-5.4A8.7,8.7,0,0,0,20,14a9,9,0,0,0-9-9,2,2,0,0,0,0,4,5,5,0,1,1-5,5,2,2,0,0,0-4,0,9,9,0,0,0,9,9,8.7,8.7,0,0,0,4.8-1.4L21.2,27,8.6,39.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0L24,29.8,36.6,42.4a1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8L26.8,27l5-5Zm-7.4-13,3.6-3.6,8.8,8.8-3.6,3.6Z"></path>
-                                        </svg>
-                                        HTML - CSS - JavaScript
-                                    </div>
-                                    <div className='images'>
-                                        {portfolioImages.map((img, index) => (
-                                            <motion.img
-                                                key={index}
-                                                src={img}
-                                                alt={`PortfolioImage${index + 1}`}
-                                                onMouseEnter={cursorEnterProjectsCard}
-                                                onMouseLeave={cursorLeaveProjectsCard}
-                                                onClick={() => {
-                                                    setPortfolioPhotoIndex(index);
-                                                    setIsPortfolioOpen(true);
-                                                    style.innerHTML = '* { cursor: default; }';
-                                                    document.head.appendChild(style);
-                                                }}
-                                            />
-                                        ))}
-                                        {isPortfolioOpen && (
-                                            <Lightbox
-                                                mainSrc={portfolioImages[portfolioPhotoIndex]}
-                                                nextSrc={portfolioImages[(portfolioPhotoIndex + 1) % portfolioImages.length]}
-                                                prevSrc={portfolioImages[(portfolioPhotoIndex + portfolioImages.length - 1) % portfolioImages.length]}
-                                                onCloseRequest={() => setIsPortfolioOpen(false)}
-                                                onMovePrevRequest={() =>
-                                                    setPortfolioPhotoIndex((portfolioPhotoIndex + portfolioImages.length - 1) % portfolioImages.length)
-                                                }
-                                                onMoveNextRequest={() =>
-                                                    setPortfolioPhotoIndex((portfolioPhotoIndex + 1) % portfolioImages.length)
-                                                }
-                                            />
-                                        )}
-                                    </div>
-                                </div>
-                            </section>
-
-                            {/* OCP Project Section */}
-                            <section id="ocpProject" ref={ocpProjectRef}>
-                                <div className="sousSection ocpProject">
-                                    <div className='projectTitle'>
-                                        <h2>Web Application for Drilling Machine Informations</h2>
-                                    </div>
-                                    <p>
-                                        For my end-of-year project, I developed a web application that features a user-friendly graphical user interface (GUI) using React. This interface enables users to easily enter and manage drilling machine data. On the backend, I utilized Laravel to create a robust database management system, ensuring seamless data storage and retrieval.                         
-                                    </p>
-                                    <div id="Tools">
-                                        <svg 
-                                            className='ToolsIcon projectIcon'
-                                            viewBox="0 0 48 48" 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M36.2,26.4a1.8,1.8,0,0,0,1.4.6,2,2,0,0,0,1.4-.6L45.4,20a1.9,1.9,0,0,0,0-2.8l-3-3.1A3.7,3.7,0,0,0,43,12a4,4,0,0,0-4-4,3.7,3.7,0,0,0-2.1.6l-3.1-3a1.9,1.9,0,0,0-2.8,0L24.6,12a1.9,1.9,0,0,0,0,2.8L29,19.2l-5,5-5.4-5.4A8.7,8.7,0,0,0,20,14a9,9,0,0,0-9-9,2,2,0,0,0,0,4,5,5,0,1,1-5,5,2,2,0,0,0-4,0,9,9,0,0,0,9,9,8.7,8.7,0,0,0,4.8-1.4L21.2,27,8.6,39.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0L24,29.8,36.6,42.4a1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8L26.8,27l5-5Zm-7.4-13,3.6-3.6,8.8,8.8-3.6,3.6Z"></path>
-                                        </svg>
-                                        Laravel - React.js
-                                    </div>
-                                    <div className='images'>
-                                        {ocpProjectImages.map((img, index) => (
-                                            <motion.img
-                                                key={index}
-                                                src={img}
-                                                alt={`OCPImage${index + 1}`}
-                                                onMouseEnter={cursorEnterProjectsCard}
-                                                onMouseLeave={cursorLeaveProjectsCard}
-                                                onClick={() => {
-                                                    setOcpIndex(index);
-                                                    setIsOcpOpen(true);
-                                                }}
-                                            />
-                                        ))}
-                                        {isOcpOpen && (
-                                            <Lightbox
-                                                mainSrc={ocpProjectImages[ocpIndex]}
-                                                nextSrc={ocpProjectImages[(ocpIndex + 1) % ocpProjectImages.length]}
-                                                prevSrc={ocpProjectImages[(ocpIndex + ocpProjectImages.length - 1) % ocpProjectImages.length]}
-                                                onCloseRequest={() => setIsOcpOpen(false)}
-                                                onMovePrevRequest={() =>
-                                                    setOcpIndex((ocpIndex + ocpProjectImages.length - 1) % ocpProjectImages.length)
-                                                }
-                                                onMoveNextRequest={() =>
-                                                    setOcpIndex((ocpIndex + 1) % ocpProjectImages.length)
-                                                }
-                                            />
-                                        )}
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <Footer/>
+      <nav>
+        <motion.div 
+        onMouseEnter={() => handleMouseEnter('Web Dev Projects')}
+        onMouseLeave={handleMouseLeave}
+        onClick={() => setActiveComponent('webdev')}
+        className={activeComponent === 'webdev' ? 'active' : ''}>
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style={{ fill: "var(--font-color)" }} ><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                <g id="SVGRepo_iconCarrier"> 
+                <g fill="none" fillRule="evenodd"> 
+                <path d="m0 0h32v32h-32z"></path> 
+                <path d="m27 3c2.7614237 0 5 2.23857625 5 5v12c0 2.7614237-2.2385763 5-5 5h-7v3h3c.5522847 0 1 .4477153 1 1s-.4477153 1-1 1h-14c-.55228475 0-1-.4477153-1-1s.44771525-1 1-1h3v-3h-7c-2.6887547 0-4.88181811-2.1223067-4.99538049-4.7831104l-.00461951-.2168896v-12c0-2.76142375 2.23857625-5 5-5zm-9 25v-3h-4v3zm9-23h-22c-1.65685425 0-3 1.34314575-3 3v12c0 1.6568542 1.34314575 3 3 3h22c1.6568542 0 3-1.3431458 3-3v-12c0-1.65685425-1.3431458-3-3-3z" style={{ fill: "var(--font-color)" }}  fillRule="nonzero">
+                </path>
+                </g></g>
+            </svg>
+            {hoveredIcon === 'Web Dev Projects' && (
+            <span>
+                {t('projectsPage.nav.webdev')}
+            </span>
+            )}
         </motion.div>
-    );
-}
-export default Projects;
+
+        <motion.div 
+        onMouseEnter={() => handleMouseEnter('Cloud Projects')}
+        onMouseLeave={handleMouseLeave}
+        onClick={() => setActiveComponent('cloud')}
+        className={activeComponent === 'cloud' ? 'active' : ''}>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> 
+                <path d="M3 13.6493C3 16.6044 5.41766 19 8.4 19L16.5 19C18.9853 19 21 16.9839 21 14.4969C21 12.6503 19.8893 10.9449 18.3 10.25C18.1317 7.32251 15.684 5 12.6893 5C10.3514 5 8.34694 6.48637 7.5 8.5C4.8 8.9375 3 11.2001 3 13.6493Z" style={{ stroke: "var(--font-color)" }} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
+            
+            {hoveredIcon === 'Cloud Projects' && (
+            <span>
+                {t('projectsPage.nav.cloud')}
+            </span>
+            )}
+        </motion.div>
+
+        <motion.div 
+        onMouseEnter={() => handleMouseEnter('Network Projects')} 
+        onMouseLeave={handleMouseLeave} 
+        onClick={() => setActiveComponent('network')}
+        className={activeComponent === 'network' ? 'active' : ''}>
+            <svg style={{ fill: "var(--font-color)" }}  viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M27 21.75c-0.795 0.004-1.538 0.229-2.169 0.616l0.018-0.010-2.694-2.449c0.724-1.105 1.154-2.459 1.154-3.913 0-1.572-0.503-3.027-1.358-4.212l0.015 0.021 3.062-3.062c0.57 0.316 1.249 0.503 1.971 0.508h0.002c2.347 0 4.25-1.903 4.25-4.25s-1.903-4.25-4.25-4.25c-2.347 0-4.25 1.903-4.25 4.25v0c0.005 0.724 0.193 1.403 0.519 1.995l-0.011-0.022-3.062 3.062c-1.147-0.84-2.587-1.344-4.144-1.344-0.868 0-1.699 0.157-2.467 0.443l0.049-0.016-0.644-1.17c0.726-0.757 1.173-1.787 1.173-2.921 0-2.332-1.891-4.223-4.223-4.223s-4.223 1.891-4.223 4.223c0 2.332 1.891 4.223 4.223 4.223 0.306 0 0.605-0.033 0.893-0.095l-0.028 0.005 0.642 1.166c-1.685 1.315-2.758 3.345-2.758 5.627 0 0.605 0.076 1.193 0.218 1.754l-0.011-0.049-0.667 0.283c-0.78-0.904-1.927-1.474-3.207-1.474-2.334 0-4.226 1.892-4.226 4.226s1.892 4.226 4.226 4.226c2.334 0 4.226-1.892 4.226-4.226 0-0.008-0-0.017-0-0.025v0.001c-0.008-0.159-0.023-0.307-0.046-0.451l0.003 0.024 0.667-0.283c1.303 2.026 3.547 3.349 6.1 3.349 1.703 0 3.268-0.589 4.503-1.574l-0.015 0.011 2.702 2.455c-0.258 0.526-0.41 1.144-0.414 1.797v0.001c0 2.347 1.903 4.25 4.25 4.25s4.25-1.903 4.25-4.25c0-2.347-1.903-4.25-4.25-4.25v0zM8.19 5c0-0.966 0.784-1.75 1.75-1.75s1.75 0.784 1.75 1.75c0 0.966-0.784 1.75-1.75 1.75v0c-0.966-0.001-1.749-0.784-1.75-1.75v-0zM5 22.42c-0.966-0.001-1.748-0.783-1.748-1.749s0.783-1.749 1.749-1.749c0.966 0 1.748 0.782 1.749 1.748v0c-0.001 0.966-0.784 1.749-1.75 1.75h-0zM27 3.25c0.966 0 1.75 0.784 1.75 1.75s-0.784 1.75-1.75 1.75c-0.966 0-1.75-0.784-1.75-1.75v0c0.001-0.966 0.784-1.749 1.75-1.75h0zM11.19 16c0-0.001 0-0.002 0-0.003 0-2.655 2.152-4.807 4.807-4.807 1.328 0 2.53 0.539 3.4 1.409l0.001 0.001 0.001 0.001c0.87 0.87 1.407 2.072 1.407 3.399 0 2.656-2.153 4.808-4.808 4.808s-4.808-2.153-4.808-4.808c0-0 0-0 0-0v0zM27 27.75c-0.966 0-1.75-0.784-1.75-1.75s0.784-1.75 1.75-1.75c0.966 0 1.75 0.784 1.75 1.75v0c-0.001 0.966-0.784 1.749-1.75 1.75h-0z"></path> </g></svg>
+        
+        {hoveredIcon === 'Network Projects' && (
+        <span>
+            {t('projectsPage.nav.network')}
+        </span>
+        )}
+        </motion.div>
+        
+        <motion.div 
+        onMouseEnter={() => handleMouseEnter('Small Projects')} 
+        onMouseLeave={handleMouseLeave} 
+        onClick={() => setActiveComponent('small')}
+        className={activeComponent === 'small' ? 'active' : ''}>
+        <svg style={{ stroke: "var(--font-color)" }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path id="Vector" d="M20 7H17.8486C17.3511 7 17 6.49751 17 6C17 4.34315 15.6569 3 14 3C12.3431 3 11 4.34315 11 6C11 6.49751 10.6488 7 10.1513 7H8C7.44771 7 7 7.44772 7 8V10.1513C7 10.6488 6.49751 11 6 11C4.34315 11 3 12.3431 3 14C3 15.6569 4.34315 17 6 17C6.49751 17 7 17.3511 7 17.8486V20C7 20.5523 7.44771 21 8 21L20 21C20.5523 21 21 20.5523 21 20V17.8486C21 17.3511 20.4975 17 20 17C18.3431 17 17 15.6569 17 14C17 12.3431 18.3431 11 20 11C20.4975 11 21 10.6488 21 10.1513L21 8C21 7.44772 20.5523 7 20 7Z" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"></path></svg>        
+        {hoveredIcon === 'Small Projects' && (
+            <span>
+                {t('projectsPage.nav.small')}
+            </span>
+        )}
+        </motion.div>
+
+        <motion.div 
+        onMouseEnter={() => handleMouseEnter('Other Projects')} 
+        onMouseLeave={handleMouseLeave} 
+        onClick={() => setActiveComponent('other')}
+        className={activeComponent === 'other' ? 'active' : ''}>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ fill: "var(--font-color)" }} ><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill='none' style={{ stroke: "var(--font-color)" }} strokeWidth="2" d="M9,15 L9,23 L1,23 L1,15 L9,15 Z M23,15 L23,23 L15,23 L15,15 L23,15 Z M9,1 L9,9 L1,9 L1,1 L9,1 Z M23,1 L23,9 L15,9 L15,1 L23,1 Z"></path> </g></svg>
+        
+        {hoveredIcon === 'Other Projects' && (
+            <span>
+                {t('projectsPage.nav.other')}
+            </span>
+        )}
+        </motion.div>
+      </nav>
+
+      <main>
+            <div className='MainProjectsContent'>
+                <div className="projectsDomain">
+                <AnimatePresence mode="wait">
+                    <motion.h1
+                        key={title}
+                        initial={{ y: 50 }}
+                        animate={{ y: 0 }} 
+                        exit={{ y: 50 }} 
+                        transition={{ duration: .2 }}
+                    >
+                        {title}
+                    </motion.h1>
+                </AnimatePresence>
+                </div>
+            <div className='ProjectsContent'>
+                {renderComponent()}
+            </div>
+            </div>
+        </main>
+    <Footer/>
+    </motion.div>
+  );
+};
+
+export default Transition(Projects);

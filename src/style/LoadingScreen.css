@@ -8,11 +8,11 @@
     justify-content: center;
     font-family: var(--main-font);
     color: var(--font-color);
-    font-size: 400%;
+    font-size: var(--fs-xxxl);
 }
 
 .flower {
     animation: flowerAnimation 10s infinite ease-in-out;
     fill: var(--font-color);
-    margin-left: 10px;
+    margin-left: 5px;
 }

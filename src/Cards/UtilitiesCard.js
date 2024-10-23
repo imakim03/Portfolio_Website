@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { ThemeContext } from '../Components/ThemeProvider';
 
 function UtilityCards({
   cursorEnterCardHover,
@@ -15,55 +17,42 @@ function UtilityCards({
     setLanguage(newLanguage);
     i18n.changeLanguage(newLanguage);
   };
+  
+  // Dark/Light mode functionality
+  const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
 
-  // Dark/light mode functionality
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedMode = localStorage.getItem('darkMode');
-    if (savedMode) {
-      return JSON.parse(savedMode);
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
-  useEffect(() => {
-    const root = document.documentElement;
+  // FullScreen fonctionality
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
-    if (isDarkMode) {
-      root.style.setProperty('--background-color', '#1D1B1F');
-      root.style.setProperty('--font-color', 'rgba(255, 255, 255, 0.814)');
-      root.style.setProperty('--accent-color', '#333333');
-      root.style.setProperty('--primary-accent-color', '#333333');
-      root.style.setProperty('--secondary-accent-color', '#3a3a3a');
+  const toggleFullscreen = () => {
+    const rootElement = document.getElementById('root');
+    if (!document.fullscreenElement) {
+      rootElement.requestFullscreen().catch(err => {
+        console.error(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+      });
     } else {
-      root.style.setProperty('--background-color', '#FFDFD6');
-      root.style.setProperty('--font-color', '#493548');
-      root.style.setProperty('--accent-color', '#E3A5C7');
-      root.style.setProperty('--primary-accent-color', 'white');
-      root.style.setProperty('--secondary-accent-color', '#D3C4E3');
+      document.exitFullscreen();
     }
-
-    // Save the user's preference in localStorage
-    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
-  }, [isDarkMode]);
+  };
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e) => setIsDarkMode(e.matches);
-    
-    mediaQuery.addEventListener('change', handleChange);
-    
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+
     return () => {
-      mediaQuery.removeEventListener('change', handleChange);
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
     };
   }, []);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode((prevMode) => !prevMode);
-  };
-
   return (
     <div className='colTwo'>
-      {/* Light/Dark Mode Toggle Card */}
       <motion.div 
         onMouseEnter={cursorEnterCardHover} 
         onMouseLeave={cursorLeaveCardHover} 
@@ -90,25 +79,32 @@ function UtilityCards({
         </button>
       </motion.div>
 
-      {/* Language Toggle Card */}
       <motion.div
         onMouseEnter={cursorEnterCardHover}
         onMouseLeave={cursorLeaveCardHover}
         className='card2 languageToggleCard icon'
       >
         <button className='languageButton' onClick={toggleLanguage}>
-          {language === 'en' ? 'Fr' : 'En'}  {/* Display current language */}
+          {language === 'en' ? 'Fr' : 'En'}
         </button>
       </motion.div>
 
-      {/* Sound Button */}
-      <motion.div onMouseEnter={cursorEnterCardHover} onMouseLeave={cursorLeaveCardHover} className='card2 button icon'>
-        <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fff" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M2 14.9588L2 9.04123C2 8.46617 2.44772 8 3 8H6.58579C6.851 8 7.10536 7.8903 7.29289 7.69503L10.2929 4.30706C10.9229 3.65112 12 4.11568 12 5.04332V18.9567C12 19.8908 10.91 20.3524 10.2839 19.6834L7.29437 16.3145C7.10615 16.1134 6.84791 16 6.57824 16H3C2.44772 16 2 15.5338 2 14.9588Z" stroke="#ffffff" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round"></path>
-          <path d="M16 8.5C17.3333 10.2778 17.3333 13.7222 16 15.5" stroke="#ffffff" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round"></path>
-          <path d="M19 5C22.9879 8.80835 23.0121 15.2171 19 19" stroke="#ffffff" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round"></path>
+      <motion.div
+      onMouseEnter={cursorEnterCardHover}
+      onMouseLeave={cursorLeaveCardHover}
+      onClick={toggleFullscreen}
+      className='card2 soundButton icon'
+    >
+      {isFullscreen ? (
+        <svg stroke="#ffffff" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height='4rem'>
+          <path d="M9.00001 18.0001L9.00001 17.0001C9.00001 15.8956 8.10458 15.0001 7.00001 15.0001H6.00001M15 18.0001V17.0001C15 15.8956 15.8954 15.0001 17 15.0001L18 15.0001M9 6.00012L9 7.00012C9 8.10469 8.10457 9.00012 7 9.00012L6 9.00012M15 6.00014L15 7.00014C15 8.10471 15.8954 9.00014 17 9.00014L18 9.00014" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round"></path>
         </svg>
-      </motion.div>
+      ) : (
+        <svg stroke="#ffffff" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height='4rem'>
+          <path d="M6 15V16C6 17.1046 6.89543 18 8 18H9M18 15V16C18 17.1046 17.1046 18 16 18H15M6 9V8C6 6.89543 6.89543 6 8 6H9M18 9V8C18 6.89543 17.1046 6 16 6H15" strokeWidth="1.44" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )}
+    </motion.div>
     </div>
   );
 }

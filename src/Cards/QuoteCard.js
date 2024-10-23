@@ -7,7 +7,7 @@ function QuoteCard({
 }) {
     return(
         <Link 
-        to='/about'
+        to='/about/#motivations'
         className="QuoteCard"
         >
             <motion.div

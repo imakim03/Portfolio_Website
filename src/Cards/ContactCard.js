@@ -1,10 +1,11 @@
-import React from "react";
+import { useTranslation } from 'react-i18next';
 
 function ContactCard() {
+    const { t } = useTranslation();
     return(
         <div
             className='card2 ContactCard'>
-            Get in touch with me on
+            {t('homePage.FindMeOn')}
         </div>
     );
 }
