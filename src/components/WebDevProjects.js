@@ -188,7 +188,7 @@ const WebDevProjects = ({
                     <section id="portfolioWebsite" ref={portfolioWebsiteRef}>
                         <div className="sousSection portfolioWebsite">
                             <a
-                                href="https://github.com/imakim03/Portfolio_website"
+                                href="https://github.com/imakim03/Old_portfolio_website"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className='projectTitle'
