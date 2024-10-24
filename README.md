@@ -81,7 +81,7 @@ The website will be available at `http://localhost:3000`.
 Feel free to contribute to this project by submitting issues or pull requests! All kinds of contributions are welcome.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/imakim03/Portfolio_Website/blob/master/LICENSE) file for details.
 
 ## Contact
 If you'd like to connect or collaborate, feel free to reach out:
