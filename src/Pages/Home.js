@@ -20,7 +20,7 @@ import { motion } from 'framer-motion';
 import Transition from '../Components/Transition';
 import '../Style/HomePage.css';
 
-function HomePage(pageRef) {
+function HomePage() {
   const { 
     isVisible,
     cursorVarient,
@@ -91,7 +91,6 @@ function HomePage(pageRef) {
                 <UtilityCards
                   cursorEnterCardHover={cursorEnterCardHover}
                   cursorLeaveCardHover={cursorLeaveCardHover}
-                  pageRef={pageRef}
                 />
 
                 <FlowerCard
