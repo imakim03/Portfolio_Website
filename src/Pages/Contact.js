@@ -72,7 +72,7 @@ function ContactPage() {
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="projectsPageContainer pageContainer"
+            className={`projectsPageContainer pageContainer ${document.fullscreenElement ? 'fullscreenContent' : ''}`}
         >
             <Cursor
                 style={{ display: isVisible ? 'block' : 'none' }}
